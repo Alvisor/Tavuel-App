@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 /// Tavuel brand colors and theme configuration.
 abstract class AppColors {
@@ -72,8 +73,7 @@ abstract class AppTheme {
       scaffoldBackgroundColor: AppColors.background,
 
       // Typography - Poppins is clean and legible at all sizes
-      fontFamily: 'Poppins',
-      textTheme: const TextTheme(
+      textTheme: GoogleFonts.poppinsTextTheme().copyWith(
         displayLarge: TextStyle(
           fontSize: 32,
           fontWeight: FontWeight.w700,
@@ -162,8 +162,7 @@ abstract class AppTheme {
         elevation: 0,
         centerTitle: true,
         titleTextStyle: TextStyle(
-          fontFamily: 'Poppins',
-          fontSize: 18,
+                    fontSize: 18,
           fontWeight: FontWeight.w600,
           color: AppColors.textPrimary,
         ),
@@ -181,8 +180,7 @@ abstract class AppTheme {
           ),
           elevation: 0,
           textStyle: const TextStyle(
-            fontFamily: 'Poppins',
-            fontSize: 16,
+                        fontSize: 16,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -198,8 +196,7 @@ abstract class AppTheme {
           ),
           side: const BorderSide(color: AppColors.primary, width: 1.5),
           textStyle: const TextStyle(
-            fontFamily: 'Poppins',
-            fontSize: 16,
+                        fontSize: 16,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -210,8 +207,7 @@ abstract class AppTheme {
         style: TextButton.styleFrom(
           foregroundColor: AppColors.primary,
           textStyle: const TextStyle(
-            fontFamily: 'Poppins',
-            fontSize: 14,
+                        fontSize: 14,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -244,18 +240,15 @@ abstract class AppTheme {
           borderSide: const BorderSide(color: AppColors.error, width: 1.5),
         ),
         hintStyle: const TextStyle(
-          fontFamily: 'Poppins',
-          fontSize: 14,
+                    fontSize: 14,
           color: AppColors.textHint,
         ),
         labelStyle: const TextStyle(
-          fontFamily: 'Poppins',
-          fontSize: 14,
+                    fontSize: 14,
           color: AppColors.textSecondary,
         ),
         errorStyle: const TextStyle(
-          fontFamily: 'Poppins',
-          fontSize: 12,
+                    fontSize: 12,
           color: AppColors.error,
         ),
       ),
@@ -276,8 +269,7 @@ abstract class AppTheme {
         backgroundColor: AppColors.surfaceVariant,
         selectedColor: AppColors.primaryLight.withOpacity(0.3),
         labelStyle: const TextStyle(
-          fontFamily: 'Poppins',
-          fontSize: 12,
+                    fontSize: 12,
           fontWeight: FontWeight.w500,
         ),
         shape: RoundedRectangleBorder(
@@ -294,13 +286,11 @@ abstract class AppTheme {
         type: BottomNavigationBarType.fixed,
         elevation: 8,
         selectedLabelStyle: TextStyle(
-          fontFamily: 'Poppins',
-          fontSize: 12,
+                    fontSize: 12,
           fontWeight: FontWeight.w600,
         ),
         unselectedLabelStyle: TextStyle(
-          fontFamily: 'Poppins',
-          fontSize: 12,
+                    fontSize: 12,
           fontWeight: FontWeight.w400,
         ),
       ),
@@ -335,8 +325,7 @@ abstract class AppTheme {
           borderRadius: BorderRadius.circular(20),
         ),
         titleTextStyle: const TextStyle(
-          fontFamily: 'Poppins',
-          fontSize: 18,
+                    fontSize: 18,
           fontWeight: FontWeight.w600,
           color: AppColors.textPrimary,
         ),
@@ -346,8 +335,7 @@ abstract class AppTheme {
       snackBarTheme: SnackBarThemeData(
         backgroundColor: AppColors.onBackground,
         contentTextStyle: const TextStyle(
-          fontFamily: 'Poppins',
-          fontSize: 14,
+                    fontSize: 14,
           color: Colors.white,
         ),
         shape: RoundedRectangleBorder(
@@ -380,16 +368,14 @@ abstract class AppTheme {
       ),
 
       scaffoldBackgroundColor: AppColors.darkBackground,
-      fontFamily: 'Poppins',
-
+      
       appBarTheme: const AppBarTheme(
         backgroundColor: AppColors.darkSurface,
         foregroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
         titleTextStyle: TextStyle(
-          fontFamily: 'Poppins',
-          fontSize: 18,
+                    fontSize: 18,
           fontWeight: FontWeight.w600,
           color: Colors.white,
         ),
@@ -434,8 +420,7 @@ abstract class AppTheme {
           ),
           elevation: 0,
           textStyle: const TextStyle(
-            fontFamily: 'Poppins',
-            fontSize: 16,
+                        fontSize: 16,
             fontWeight: FontWeight.w600,
           ),
         ),
