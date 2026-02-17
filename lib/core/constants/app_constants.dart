@@ -7,9 +7,12 @@ abstract class AppConstants {
 
   // ── API Configuration ──────────────────────────
   /// Base URL for the Tavuel REST API.
-  /// Override via environment variable or flavors for staging/production.
-  static const String apiBaseUrl = 'https://api.tavuel.com/v1';
+  static const String apiBaseUrl = _isDebug
+      ? 'http://192.168.10.7:3000/v1'
+      : 'https://api.tavuel.com/v1';
   static const String apiBaseUrlStaging = 'https://staging-api.tavuel.com/v1';
+
+  static const bool _isDebug = bool.fromEnvironment('dart.vm.product') == false;
 
   /// WebSocket endpoint for real-time tracking and chat.
   static const String wsBaseUrl = 'wss://ws.tavuel.com';
