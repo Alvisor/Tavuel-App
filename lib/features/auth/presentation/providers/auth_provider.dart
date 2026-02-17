@@ -135,6 +135,25 @@ class AuthNotifier extends StateNotifier<AuthState> {
     );
   }
 
+  Future<bool> googleSignIn() async {
+    state = state.copyWith(status: AuthStatus.loading, errorMessage: null);
+
+    final result = await _repository.googleSignIn();
+    return result.when(
+      success: (user) {
+        state = AuthState(status: AuthStatus.authenticated, user: user);
+        return true;
+      },
+      failure: (failure) {
+        state = AuthState(
+          status: AuthStatus.unauthenticated,
+          errorMessage: failure.message,
+        );
+        return false;
+      },
+    );
+  }
+
   Future<void> logout() async {
     await _repository.logout();
     state = const AuthState(status: AuthStatus.unauthenticated);

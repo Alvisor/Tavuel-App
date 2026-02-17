@@ -29,7 +29,7 @@ class SearchBarWidget extends StatelessWidget {
               ),
               const SizedBox(width: 12),
               Text(
-                'Que servicio necesitas?',
+                '¿Qué servicio necesitas?',
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: AppColors.textHint,
                     ),

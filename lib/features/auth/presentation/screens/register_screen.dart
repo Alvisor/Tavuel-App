@@ -28,6 +28,12 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
   bool _obscureConfirmPassword = true;
 
   @override
+  void initState() {
+    super.initState();
+    Future.microtask(() => ref.read(authProvider.notifier).clearError());
+  }
+
+  @override
   void dispose() {
     _firstNameController.dispose();
     _lastNameController.dispose();
@@ -141,7 +147,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                     Expanded(
                       child: AuthTextField(
                         controller: _lastNameController,
-                        hintText: 'Perez',
+                        hintText: 'Pérez',
                         labelText: 'Apellido',
                         prefixIcon: Icons.person_outline,
                         validator: Validators.name,
@@ -157,7 +163,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                 AuthTextField(
                   controller: _emailController,
                   hintText: 'correo@ejemplo.com',
-                  labelText: 'Correo electronico',
+                  labelText: 'Correo electrónico',
                   prefixIcon: Icons.email_outlined,
                   keyboardType: TextInputType.emailAddress,
                   validator: Validators.email,
@@ -169,7 +175,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                 AuthTextField(
                   controller: _phoneController,
                   hintText: '3001234567',
-                  labelText: 'Telefono',
+                  labelText: 'Teléfono',
                   prefixIcon: Icons.phone_outlined,
                   keyboardType: TextInputType.phone,
                   validator: Validators.phone,
@@ -184,8 +190,8 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                 // Password
                 AuthTextField(
                   controller: _passwordController,
-                  hintText: 'Minimo 8 caracteres',
-                  labelText: 'Contrasena',
+                  hintText: 'Mínimo 8 caracteres',
+                  labelText: 'Contraseña',
                   prefixIcon: Icons.lock_outline,
                   obscureText: _obscurePassword,
                   validator: Validators.password,
@@ -207,8 +213,8 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                 // Confirm password
                 AuthTextField(
                   controller: _confirmPasswordController,
-                  hintText: 'Repite tu contrasena',
-                  labelText: 'Confirmar contrasena',
+                  hintText: 'Repite tu contraseña',
+                  labelText: 'Confirmar contraseña',
                   prefixIcon: Icons.lock_outline,
                   obscureText: _obscureConfirmPassword,
                   textInputAction: TextInputAction.done,
@@ -258,7 +264,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Ya tienes cuenta? ',
+                      '¿Ya tienes cuenta? ',
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                             color: AppColors.textSecondary,
                           ),
@@ -266,7 +272,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                     GestureDetector(
                       onTap: () => context.pop(),
                       child: Text(
-                        'Inicia sesion',
+                        'Inicia sesión',
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                               color: AppColors.primary,
                               fontWeight: FontWeight.w600,

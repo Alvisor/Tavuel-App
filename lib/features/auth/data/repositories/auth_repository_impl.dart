@@ -1,3 +1,5 @@
+import 'package:google_sign_in/google_sign_in.dart';
+
 import '../../../../core/api/api_interceptors.dart';
 import '../../../../core/errors/app_exception.dart';
 import '../../../../core/errors/failure.dart';
@@ -67,6 +69,43 @@ class AuthRepositoryImpl implements AuthRepository {
     } catch (e) {
       return Result.failure(
         Failure(message: 'Error inesperado: ${e.toString()}'),
+      );
+    }
+  }
+
+  @override
+  Future<Result<User>> googleSignIn() async {
+    try {
+      final googleSignIn = GoogleSignIn(scopes: ['email']);
+      final account = await googleSignIn.signIn();
+
+      if (account == null) {
+        return Result.failure(
+          const Failure(message: 'Inicio con Google cancelado.'),
+        );
+      }
+
+      final auth = await account.authentication;
+      final idToken = auth.idToken;
+
+      if (idToken == null) {
+        return Result.failure(
+          const Failure(message: 'No se pudo obtener el token de Google.'),
+        );
+      }
+
+      final response = await _datasource.googleSignIn(idToken: idToken);
+      await _storage.saveTokens(
+        accessToken: response.accessToken,
+        refreshToken: response.refreshToken,
+      );
+      await _storage.saveUserId(response.user.id);
+      return Result.success(response.user);
+    } on AppException catch (e) {
+      return Result.failure(Failure(message: e.message));
+    } catch (e) {
+      return Result.failure(
+        Failure(message: 'Error con Google Sign-In: ${e.toString()}'),
       );
     }
   }

@@ -141,7 +141,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                   return _PlaceholderScreen(
                     title: 'Buscar Proveedor',
                     subtitle:
-                        category != null ? 'Categoria: $category' : null,
+                        category != null ? 'Categoría: $category' : null,
                   );
                 },
               ),
@@ -254,7 +254,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             const Icon(Icons.error_outline, size: 64, color: Colors.red),
             const SizedBox(height: 16),
             Text(
-              'Pagina no encontrada',
+              'Página no encontrada',
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             const SizedBox(height: 8),
@@ -308,7 +308,7 @@ class _PlaceholderScreen extends StatelessWidget {
             ],
             const SizedBox(height: 8),
             Text(
-              'En construccion',
+              'En construcción',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     color: Colors.grey,
                   ),
@@ -342,7 +342,7 @@ class _ProfilePlaceholder extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              'En construccion',
+              'En construcción',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     color: Colors.grey,
                   ),
@@ -354,7 +354,7 @@ class _ProfilePlaceholder extends StatelessWidget {
                 onPressed: onLogout,
                 icon: const Icon(Icons.logout, color: Colors.red),
                 label: const Text(
-                  'Cerrar sesion',
+                  'Cerrar sesión',
                   style: TextStyle(color: Colors.red),
                 ),
                 style: OutlinedButton.styleFrom(

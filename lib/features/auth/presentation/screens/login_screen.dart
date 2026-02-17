@@ -22,10 +22,24 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   bool _obscurePassword = true;
 
   @override
+  void initState() {
+    super.initState();
+    // Limpiar errores previos al entrar a la pantalla
+    Future.microtask(() => ref.read(authProvider.notifier).clearError());
+  }
+
+  @override
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
+  }
+
+  Future<void> _handleGoogleSignIn() async {
+    final success = await ref.read(authProvider.notifier).googleSignIn();
+    if (success && mounted) {
+      context.go(AppRoutes.home);
+    }
   }
 
   Future<void> _handleLogin() async {
@@ -97,7 +111,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Inicia sesion para continuar',
+                  'Inicia sesión para continuar',
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                         color: AppColors.textSecondary,
                       ),
@@ -138,7 +152,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 AuthTextField(
                   controller: _emailController,
                   hintText: 'correo@ejemplo.com',
-                  labelText: 'Correo electronico',
+                  labelText: 'Correo electrónico',
                   prefixIcon: Icons.email_outlined,
                   keyboardType: TextInputType.emailAddress,
                   validator: Validators.email,
@@ -149,8 +163,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 // Password
                 AuthTextField(
                   controller: _passwordController,
-                  hintText: 'Tu contrasena',
-                  labelText: 'Contrasena',
+                  hintText: 'Tu contraseña',
+                  labelText: 'Contraseña',
                   prefixIcon: Icons.lock_outline,
                   obscureText: _obscurePassword,
                   textInputAction: TextInputAction.done,
@@ -185,7 +199,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                               color: Colors.white,
                             ),
                           )
-                        : const Text('Iniciar Sesion'),
+                        : const Text('Iniciar Sesión'),
                   ),
                 ),
 
@@ -198,7 +212,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Text(
-                        'o continua con',
+                        'o continúa con',
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                     ),
@@ -208,11 +222,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
                 const SizedBox(height: 24),
 
-                // Google Sign-In (disabled for now)
+                // Google Sign-In
                 SizedBox(
                   height: 52,
                   child: OutlinedButton.icon(
-                    onPressed: null,
+                    onPressed: isLoading ? null : _handleGoogleSignIn,
                     icon: const Icon(Icons.g_mobiledata, size: 28),
                     label: const Text('Google'),
                   ),
@@ -225,7 +239,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'No tienes cuenta? ',
+                      '¿No tienes cuenta? ',
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                             color: AppColors.textSecondary,
                           ),
@@ -233,7 +247,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     GestureDetector(
                       onTap: () => context.push(AppRoutes.register),
                       child: Text(
-                        'Registrate',
+                        'Regístrate',
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                               color: AppColors.primary,
                               fontWeight: FontWeight.w600,

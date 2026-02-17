@@ -51,7 +51,7 @@ class HomeHeader extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
                 Text(
-                  'Que servicio necesitas hoy?',
+                  '¿Qué servicio necesitas hoy?',
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
               ],

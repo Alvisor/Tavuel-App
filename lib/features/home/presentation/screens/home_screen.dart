@@ -43,7 +43,7 @@ class HomeScreen extends ConsumerWidget {
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 16),
                 child: Text(
-                  'Categorias',
+                  'Categorías',
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
               ),

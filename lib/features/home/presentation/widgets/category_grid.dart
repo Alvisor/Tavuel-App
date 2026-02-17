@@ -20,7 +20,7 @@ class CategoryItem {
 
 const _categories = [
   CategoryItem(
-    name: 'Plomeria',
+    name: 'Plomería',
     slug: 'plomeria',
     icon: Icons.plumbing,
     color: Color(0xFF2196F3),
@@ -32,7 +32,7 @@ const _categories = [
     color: Color(0xFFF59E0B),
   ),
   CategoryItem(
-    name: 'Cerrajeria',
+    name: 'Cerrajería',
     slug: 'cerrajeria',
     icon: Icons.lock,
     color: Color(0xFF6B7280),
@@ -50,13 +50,13 @@ const _categories = [
     color: Color(0xFF10B981),
   ),
   CategoryItem(
-    name: 'Jardineria',
+    name: 'Jardinería',
     slug: 'jardineria',
     icon: Icons.yard,
     color: Color(0xFF22C55E),
   ),
   CategoryItem(
-    name: 'Carpinteria',
+    name: 'Carpintería',
     slug: 'carpinteria',
     icon: Icons.carpenter,
     color: Color(0xFF92400E),
@@ -80,19 +80,19 @@ const _categories = [
     color: Color(0xFFEF4444),
   ),
   CategoryItem(
-    name: 'Albanileria',
+    name: 'Albañilería',
     slug: 'albanileria',
     icon: Icons.construction,
     color: Color(0xFF78716C),
   ),
   CategoryItem(
-    name: 'Vidrieria',
+    name: 'Vidriería',
     slug: 'vidrieria',
     icon: Icons.window,
     color: Color(0xFF0EA5E9),
   ),
   CategoryItem(
-    name: 'Fumigacion',
+    name: 'Fumigación',
     slug: 'fumigacion',
     icon: Icons.pest_control,
     color: Color(0xFF84CC16),

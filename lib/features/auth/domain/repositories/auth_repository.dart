@@ -15,6 +15,8 @@ abstract class AuthRepository {
     required String phone,
   });
 
+  Future<Result<User>> googleSignIn();
+
   Future<Result<void>> logout();
 
   Future<Result<User>> getCurrentUser();
