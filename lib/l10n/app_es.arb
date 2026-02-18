@@ -1,148 +1,1159 @@
 {
   "@@locale": "es",
+
   "appName": "Tavuel",
-  "@appName": {
-    "description": "The name of the application"
-  },
+  "@appName": { "description": "The name of the application" },
 
-  "welcomeTitle": "Bienvenido a Tavuel",
-  "@welcomeTitle": {
-    "description": "Welcome screen title"
-  },
-  "welcomeSubtitle": "Servicios para el hogar a un toque de distancia",
-  "getStarted": "Comenzar",
-  "alreadyHaveAccount": "Ya tengo una cuenta",
+  "appTagline": "Servicios del hogar",
+  "@appTagline": { "description": "App tagline shown on splash screen" },
 
-  "login": "Iniciar sesion",
-  "register": "Registrarse",
-  "email": "Correo electronico",
-  "password": "Contrasena",
-  "confirmPassword": "Confirmar contrasena",
-  "forgotPassword": "Olvide mi contrasena",
-  "resetPassword": "Restablecer contrasena",
-  "signInWithGoogle": "Continuar con Google",
-  "orContinueWith": "O continua con",
-  "firstName": "Nombre",
-  "lastName": "Apellido",
-  "phone": "Telefono",
-  "cedula": "Cedula de ciudadania",
-  "address": "Direccion",
-  "city": "Ciudad",
-  "neighborhood": "Barrio",
-  "logout": "Cerrar sesion",
-  "logoutConfirmation": "Estas seguro que deseas cerrar sesion?",
 
-  "home": "Inicio",
-  "search": "Buscar",
-  "bookings": "Reservas",
-  "profile": "Perfil",
-  "notifications": "Notificaciones",
 
-  "searchPlaceholder": "Que servicio necesitas?",
-  "popularServices": "Servicios populares",
-  "nearbyProviders": "Proveedores cercanos",
-  "recentBookings": "Reservas recientes",
-  "viewAll": "Ver todo",
+  "authWelcome": "Bienvenido",
+  "@authWelcome": { "description": "Welcome greeting on login screen" },
 
-  "categoryPlumbing": "Plomeria",
-  "categoryElectrical": "Electricidad",
-  "categoryLocksmith": "Cerrajeria",
-  "categoryPainting": "Pintura",
-  "categoryCleaning": "Limpieza",
-  "categoryGardening": "Jardineria",
-  "categoryCarpentry": "Carpinteria",
-  "categoryAC": "Aire acondicionado",
-  "categoryAppliances": "Electrodomesticos",
-  "categoryMoving": "Mudanzas",
-  "categoryMasonry": "Albanileria",
-  "categoryGlazing": "Vidrieria",
-  "categoryPestControl": "Fumigacion",
-  "categoryOther": "Otros",
+  "authLoginSubtitle": "Inicia sesión para continuar",
+  "@authLoginSubtitle": { "description": "Subtitle on login screen" },
 
-  "providerProfile": "Perfil del proveedor",
-  "rating": "Calificacion",
-  "reviews": "Resenas",
-  "completedJobs": "Trabajos completados",
-  "responseTime": "Tiempo de respuesta",
-  "memberSince": "Miembro desde",
-  "verified": "Verificado",
-  "availableNow": "Disponible ahora",
+  "authEmailLabel": "Correo electrónico",
+  "@authEmailLabel": { "description": "Email input label" },
 
-  "bookService": "Reservar servicio",
-  "selectDate": "Seleccionar fecha",
-  "selectTime": "Seleccionar hora",
-  "describeIssue": "Describe el problema",
-  "addPhotos": "Agregar fotos",
-  "estimatedPrice": "Precio estimado",
-  "confirmBooking": "Confirmar reserva",
-  "bookingConfirmed": "Reserva confirmada",
+  "authEmailHint": "correo@ejemplo.com",
+  "@authEmailHint": { "description": "Email input hint" },
 
-  "bookingStatusPending": "Pendiente",
-  "bookingStatusConfirmed": "Confirmada",
-  "bookingStatusInProgress": "En progreso",
-  "bookingStatusCompleted": "Completada",
-  "bookingStatusCancelled": "Cancelada",
+  "authPasswordLabel": "Contraseña",
+  "@authPasswordLabel": { "description": "Password input label" },
 
-  "tracking": "Seguimiento",
-  "providerOnTheWay": "El proveedor esta en camino",
-  "estimatedArrival": "Llegada estimada",
-  "contactProvider": "Contactar proveedor",
-  "cancelBooking": "Cancelar reserva",
-  "cancelConfirmation": "Estas seguro que deseas cancelar esta reserva?",
+  "authPasswordHint": "Tu contraseña",
+  "@authPasswordHint": { "description": "Password input hint" },
 
-  "rateService": "Califica el servicio",
-  "writeReview": "Escribe tu opinion",
-  "submitReview": "Enviar calificacion",
-  "thankYouReview": "Gracias por tu calificacion!",
+  "authLoginButton": "Iniciar Sesión",
+  "@authLoginButton": { "description": "Login button text" },
 
-  "pqrs": "PQRs",
-  "createPQR": "Crear PQR",
-  "pqrPetition": "Peticion",
-  "pqrComplaint": "Queja",
-  "pqrClaim": "Reclamo",
-  "pqrSuggestion": "Sugerencia",
-  "pqrDescription": "Descripcion",
-  "pqrSubmitted": "Tu PQR ha sido registrado exitosamente.",
-  "pqrResponseTime": "Tiempo de respuesta: hasta 15 dias habiles",
-  "pqrTrackingNumber": "Numero de radicado",
+  "authOrContinueWith": "o continúa con",
+  "@authOrContinueWith": { "description": "Divider text between login and social buttons" },
 
-  "editProfile": "Editar perfil",
-  "personalInfo": "Informacion personal",
-  "paymentMethods": "Metodos de pago",
-  "savedAddresses": "Direcciones guardadas",
-  "settings": "Configuracion",
-  "helpCenter": "Centro de ayuda",
-  "termsAndConditions": "Terminos y condiciones",
-  "privacyPolicy": "Politica de privacidad",
-  "aboutTavuel": "Acerca de Tavuel",
-  "appVersion": "Version de la app",
+  "authGoogle": "Google",
+  "@authGoogle": { "description": "Google sign-in button label" },
 
-  "save": "Guardar",
-  "cancel": "Cancelar",
-  "confirm": "Confirmar",
-  "delete": "Eliminar",
-  "edit": "Editar",
-  "close": "Cerrar",
-  "retry": "Reintentar",
-  "next": "Siguiente",
-  "back": "Atras",
-  "done": "Listo",
-  "yes": "Si",
-  "no": "No",
-  "ok": "Aceptar",
-  "loading": "Cargando...",
-  "noResults": "No se encontraron resultados.",
-  "errorGeneral": "Ocurrio un error. Intenta de nuevo.",
-  "errorNetwork": "Verifica tu conexion a internet.",
-  "errorServer": "Error del servidor. Intenta mas tarde.",
-  "errorSession": "Tu sesion ha expirado. Inicia sesion nuevamente.",
-  "pullToRefresh": "Desliza hacia abajo para actualizar",
-  "copAmount": "{amount} COP",
-  "@copAmount": {
+  "authNoAccount": "¿No tienes cuenta? ",
+  "@authNoAccount": { "description": "Text before register link" },
+
+  "authRegisterLink": "Regístrate",
+  "@authRegisterLink": { "description": "Register link text" },
+
+  "authCreateAccount": "Crear cuenta",
+  "@authCreateAccount": { "description": "Register screen title" },
+
+  "authCreateAccountSubtitle": "Completa tus datos para comenzar",
+  "@authCreateAccountSubtitle": { "description": "Register screen subtitle" },
+
+  "authFirstNameLabel": "Nombre",
+  "@authFirstNameLabel": { "description": "First name input label" },
+
+  "authFirstNameHint": "Juan",
+  "@authFirstNameHint": { "description": "First name input hint" },
+
+  "authLastNameLabel": "Apellido",
+  "@authLastNameLabel": { "description": "Last name input label" },
+
+  "authLastNameHint": "Pérez",
+  "@authLastNameHint": { "description": "Last name input hint" },
+
+  "authPhoneLabel": "Teléfono",
+  "@authPhoneLabel": { "description": "Phone number input label" },
+
+  "authPhoneHint": "3001234567",
+  "@authPhoneHint": { "description": "Phone number input hint" },
+
+  "authPasswordMinHint": "Mínimo 8 caracteres",
+  "@authPasswordMinHint": { "description": "Password hint for minimum length" },
+
+  "authConfirmPasswordLabel": "Confirmar contraseña",
+  "@authConfirmPasswordLabel": { "description": "Confirm password input label" },
+
+  "authConfirmPasswordHint": "Repite tu contraseña",
+  "@authConfirmPasswordHint": { "description": "Confirm password input hint" },
+
+  "authWantsToBeProvider": "Quiero ofrecer mis servicios como proveedor",
+  "@authWantsToBeProvider": { "description": "Checkbox to become a provider" },
+
+  "authProviderSubtitle": "Podrás completar tu perfil de proveedor después",
+  "@authProviderSubtitle": { "description": "Subtitle under provider checkbox" },
+
+  "authCreateAccountButton": "Crear Cuenta",
+  "@authCreateAccountButton": { "description": "Create account button text" },
+
+  "authHasAccount": "¿Ya tienes cuenta? ",
+  "@authHasAccount": { "description": "Text before login link" },
+
+  "authLoginLink": "Inicia sesión",
+  "@authLoginLink": { "description": "Login link text" },
+
+
+
+  "homeGreeting": "Hola, {name}",
+  "@homeGreeting": {
+    "description": "Greeting on home screen",
     "placeholders": {
-      "amount": {
-        "type": "String"
-      }
+      "name": { "type": "String" }
     }
-  }
+  },
+
+  "homeServiceQuestion": "¿Qué servicio necesitas hoy?",
+  "@homeServiceQuestion": { "description": "Subtitle on home header" },
+
+  "homeCategories": "Categorías",
+  "@homeCategories": { "description": "Categories section title" },
+
+  "homeSearchPlaceholder": "¿Qué servicio necesitas?",
+  "@homeSearchPlaceholder": { "description": "Search bar placeholder text" },
+
+  "homeFirstService": "Tu primer servicio",
+  "@homeFirstService": { "description": "Promo banner title" },
+
+  "homeFirstServiceSubtitle": "Encuentra al profesional ideal para tu hogar",
+  "@homeFirstServiceSubtitle": { "description": "Promo banner subtitle" },
+
+  "homeExplore": "Explorar",
+  "@homeExplore": { "description": "Explore button on promo banner" },
+
+  "homeDefaultUser": "Usuario",
+  "@homeDefaultUser": { "description": "Default username when not logged in" },
+
+
+
+  "categoryPlumbing": "Plomería",
+  "@categoryPlumbing": { "description": "Plumbing service category" },
+
+  "categoryElectricity": "Electricidad",
+  "@categoryElectricity": { "description": "Electricity service category" },
+
+  "categoryLocksmith": "Cerrajería",
+  "@categoryLocksmith": { "description": "Locksmith service category" },
+
+  "categoryPainting": "Pintura",
+  "@categoryPainting": { "description": "Painting service category" },
+
+  "categoryCleaning": "Limpieza",
+  "@categoryCleaning": { "description": "Cleaning service category" },
+
+  "categoryGardening": "Jardinería",
+  "@categoryGardening": { "description": "Gardening service category" },
+
+  "categoryCarpentry": "Carpintería",
+  "@categoryCarpentry": { "description": "Carpentry service category" },
+
+  "categoryAirConditioning": "Aire Acond.",
+  "@categoryAirConditioning": { "description": "Air conditioning service category" },
+
+  "categoryAppliances": "Electro-\ndomesticos",
+  "@categoryAppliances": { "description": "Appliances repair service category" },
+
+  "categoryMoving": "Mudanzas",
+  "@categoryMoving": { "description": "Moving service category" },
+
+  "categoryMasonry": "Albañilería",
+  "@categoryMasonry": { "description": "Masonry service category" },
+
+  "categoryGlazing": "Vidriería",
+  "@categoryGlazing": { "description": "Glazing service category" },
+
+  "categoryFumigation": "Fumigación",
+  "@categoryFumigation": { "description": "Fumigation service category" },
+
+  "categoryOthers": "Otros",
+  "@categoryOthers": { "description": "Other services category" },
+
+
+
+  "onboardingTitle": "Registro de proveedor",
+  "@onboardingTitle": { "description": "Onboarding wizard app bar title" },
+
+  "onboardingLoadingData": "Cargando datos...",
+  "@onboardingLoadingData": { "description": "Loading indicator message" },
+
+  "onboardingStepProfile": "Perfil",
+  "@onboardingStepProfile": { "description": "Step 1 label" },
+
+  "onboardingStepCategories": "Categorías",
+  "@onboardingStepCategories": { "description": "Step 2 label" },
+
+  "onboardingStepDocuments": "Documentos",
+  "@onboardingStepDocuments": { "description": "Step 3 label" },
+
+  "onboardingStepBank": "Banco",
+  "@onboardingStepBank": { "description": "Step 4 label" },
+
+  "onboardingStepSchedule": "Horario",
+  "@onboardingStepSchedule": { "description": "Step 5 label" },
+
+  "onboardingStepReview": "Revisar",
+  "@onboardingStepReview": { "description": "Step 6 label" },
+
+
+
+  "onboardingBioTitle": "Cuéntanos sobre ti",
+  "@onboardingBioTitle": { "description": "Step 1 title" },
+
+  "onboardingBioSubtitle": "Esta información será visible para los clientes que busquen tus servicios.",
+  "@onboardingBioSubtitle": { "description": "Step 1 subtitle" },
+
+  "onboardingBioLabel": "Descripción profesional",
+  "@onboardingBioLabel": { "description": "Bio field label" },
+
+  "onboardingBioHint": "Ej: Soy electricista certificado con 10 años de experiencia en instalaciones residenciales y comerciales...",
+  "@onboardingBioHint": { "description": "Bio field hint text" },
+
+  "onboardingBioRequired": "La descripción es obligatoria.",
+  "@onboardingBioRequired": { "description": "Bio required validation error" },
+
+  "onboardingBioMinLength": "La descripción debe tener al menos 20 caracteres.",
+  "@onboardingBioMinLength": { "description": "Bio min length validation error" },
+
+  "onboardingAddressLabel": "Dirección de servicio",
+  "@onboardingAddressLabel": { "description": "Address field label" },
+
+  "onboardingAddressHint": "Ej: Calle 123 #45-67, Barrio, Ciudad",
+  "@onboardingAddressHint": { "description": "Address field hint text" },
+
+  "onboardingAddressRequired": "La dirección es obligatoria.",
+  "@onboardingAddressRequired": { "description": "Address required validation error" },
+
+  "onboardingLocationOptional": "Ubicación (opcional)",
+  "@onboardingLocationOptional": { "description": "Optional location label" },
+
+  "onboardingLocationHint": "Puedes agregar coordenadas para una ubicación más precisa.",
+  "@onboardingLocationHint": { "description": "Location hint text" },
+
+  "onboardingLatitudeHint": "Latitud",
+  "@onboardingLatitudeHint": { "description": "Latitude field hint" },
+
+  "onboardingLongitudeHint": "Longitud",
+  "@onboardingLongitudeHint": { "description": "Longitude field hint" },
+
+  "onboardingLatitudeInvalid": "Latitud inválida.",
+  "@onboardingLatitudeInvalid": { "description": "Latitude validation error" },
+
+  "onboardingLongitudeInvalid": "Longitud inválida.",
+  "@onboardingLongitudeInvalid": { "description": "Longitude validation error" },
+
+
+
+  "onboardingCategoriesTitle": "¿Qué servicios ofreces?",
+  "@onboardingCategoriesTitle": { "description": "Step 2 title" },
+
+  "onboardingCategoriesSubtitle": "Selecciona las categorías de los servicios que deseas ofrecer. Puedes elegir varias.",
+  "@onboardingCategoriesSubtitle": { "description": "Step 2 subtitle" },
+
+  "onboardingCategoriesSelected": "{count} seleccionada{suffix}",
+  "@onboardingCategoriesSelected": {
+    "description": "Selected categories count",
+    "placeholders": {
+      "count": { "type": "int" },
+      "suffix": { "type": "String" }
+    }
+  },
+
+  "onboardingCategoriesLoading": "Cargando categorías...",
+  "@onboardingCategoriesLoading": { "description": "Loading categories message" },
+
+  "onboardingCategoriesRequired": "Debes seleccionar al menos una categoría.",
+  "@onboardingCategoriesRequired": { "description": "Categories required validation" },
+
+
+
+  "onboardingDocumentsTitle": "Documentos de verificación",
+  "@onboardingDocumentsTitle": { "description": "Step 3 title" },
+
+  "onboardingDocumentsSubtitle": "Sube los siguientes documentos para verificar tu identidad. Asegúrate de que las fotos sean claras y legibles.",
+  "@onboardingDocumentsSubtitle": { "description": "Step 3 subtitle" },
+
+  "onboardingDocumentsReviewNote": "Tus documentos serán revisados por un administrador. Este proceso puede tomar de 24 a 48 horas.",
+  "@onboardingDocumentsReviewNote": { "description": "Document review info note" },
+
+  "onboardingDocCedulaFront": "Cedula frente",
+  "@onboardingDocCedulaFront": { "description": "Front of cedula document type" },
+
+  "onboardingDocCedulaBack": "Cedula reverso",
+  "@onboardingDocCedulaBack": { "description": "Back of cedula document type" },
+
+  "onboardingDocSelfie": "Selfie con cedula",
+  "@onboardingDocSelfie": { "description": "Selfie with cedula document type" },
+
+  "onboardingDocRUT": "RUT",
+  "@onboardingDocRUT": { "description": "RUT document type" },
+
+  "onboardingDocAntecedentes": "Antecedentes",
+  "@onboardingDocAntecedentes": { "description": "Background check document type" },
+
+  "onboardingDocBankCertificate": "Certificado bancario",
+  "@onboardingDocBankCertificate": { "description": "Bank certificate document type" },
+
+  "onboardingDocStatusPending": "Pendiente",
+  "@onboardingDocStatusPending": { "description": "Document status: pending" },
+
+  "onboardingDocStatusUploaded": "Subido",
+  "@onboardingDocStatusUploaded": { "description": "Document status: uploaded" },
+
+  "onboardingDocStatusApproved": "Aprobado",
+  "@onboardingDocStatusApproved": { "description": "Document status: approved" },
+
+  "onboardingDocStatusRejected": "Rechazado",
+  "@onboardingDocStatusRejected": { "description": "Document status: rejected" },
+
+  "onboardingDocStatusDefault": "Sin subir",
+  "@onboardingDocStatusDefault": { "description": "Document status: not uploaded" },
+
+  "onboardingDocUploading": "Subiendo...",
+  "@onboardingDocUploading": { "description": "Document upload progress text" },
+
+  "onboardingDocSelectTitle": "Seleccionar {docType}",
+  "@onboardingDocSelectTitle": {
+    "description": "Title for document source picker bottom sheet",
+    "placeholders": {
+      "docType": { "type": "String" }
+    }
+  },
+
+  "onboardingDocTakePhoto": "Tomar foto",
+  "@onboardingDocTakePhoto": { "description": "Camera option for document upload" },
+
+  "onboardingDocChooseGallery": "Elegir de galeria",
+  "@onboardingDocChooseGallery": { "description": "Gallery option for document upload" },
+
+
+
+  "onboardingBankTitle": "Datos bancarios",
+  "@onboardingBankTitle": { "description": "Step 4 title" },
+
+  "onboardingBankSubtitle": "Configura tu cuenta para recibir pagos. Esta información se mantiene segura y encriptada.",
+  "@onboardingBankSubtitle": { "description": "Step 4 subtitle" },
+
+  "onboardingBankAccountType": "Tipo de cuenta",
+  "@onboardingBankAccountType": { "description": "Bank account type label" },
+
+  "onboardingBankNequi": "Nequi",
+  "@onboardingBankNequi": { "description": "Nequi bank type" },
+
+  "onboardingBankDaviplata": "Daviplata",
+  "@onboardingBankDaviplata": { "description": "Daviplata bank type" },
+
+  "onboardingBankTraditional": "Banco tradicional",
+  "@onboardingBankTraditional": { "description": "Traditional bank type" },
+
+  "onboardingBankNequiPhoneLabel": "Número de celular Nequi",
+  "@onboardingBankNequiPhoneLabel": { "description": "Nequi phone number label" },
+
+  "onboardingBankDaviplataIdLabel": "Número de cédula Daviplata",
+  "@onboardingBankDaviplataIdLabel": { "description": "Daviplata cedula number label" },
+
+  "onboardingBankLabel": "Banco",
+  "@onboardingBankLabel": { "description": "Bank dropdown label" },
+
+  "onboardingBankSelectHint": "Selecciona tu banco",
+  "@onboardingBankSelectHint": { "description": "Bank dropdown hint" },
+
+  "onboardingBankAccountTypeLabel": "Tipo de cuenta",
+  "@onboardingBankAccountTypeLabel": { "description": "Account type dropdown label" },
+
+  "onboardingBankAccountTypeHint": "Selecciona tipo de cuenta",
+  "@onboardingBankAccountTypeHint": { "description": "Account type dropdown hint" },
+
+  "onboardingBankAccountTypeSavings": "Ahorros",
+  "@onboardingBankAccountTypeSavings": { "description": "Savings account type" },
+
+  "onboardingBankAccountTypeCurrent": "Corriente",
+  "@onboardingBankAccountTypeCurrent": { "description": "Current/checking account type" },
+
+  "onboardingBankAccountNumberLabel": "Número de cuenta",
+  "@onboardingBankAccountNumberLabel": { "description": "Account number label" },
+
+  "onboardingBankAccountNumberHint": "Número de cuenta",
+  "@onboardingBankAccountNumberHint": { "description": "Account number hint" },
+
+  "onboardingBankHolderLabel": "Nombre del titular",
+  "@onboardingBankHolderLabel": { "description": "Account holder name label" },
+
+  "onboardingBankHolderHint": "Nombre completo del titular",
+  "@onboardingBankHolderHint": { "description": "Account holder name hint" },
+
+  "onboardingBankDocTypeLabel": "Tipo de documento",
+  "@onboardingBankDocTypeLabel": { "description": "Document type dropdown label" },
+
+  "onboardingBankDocTypeHint": "Tipo de documento",
+  "@onboardingBankDocTypeHint": { "description": "Document type dropdown hint" },
+
+  "onboardingBankDocNumberLabel": "Número de documento",
+  "@onboardingBankDocNumberLabel": { "description": "Document number label" },
+
+  "onboardingBankDocNumberHint": "Número de documento",
+  "@onboardingBankDocNumberHint": { "description": "Document number hint" },
+
+  "onboardingBankPhoneRequired": "El número es obligatorio.",
+  "@onboardingBankPhoneRequired": { "description": "Phone required validation" },
+
+  "onboardingBankPhoneDigits": "El número debe tener 10 dígitos.",
+  "@onboardingBankPhoneDigits": { "description": "Phone digits validation" },
+
+  "onboardingBankCedulaRequired": "La cédula es obligatoria.",
+  "@onboardingBankCedulaRequired": { "description": "Cedula required validation" },
+
+  "onboardingBankCedulaMinDigits": "La cédula debe tener al menos 6 dígitos.",
+  "@onboardingBankCedulaMinDigits": { "description": "Cedula min digits validation" },
+
+  "onboardingBankSelectBank": "Selecciona un banco.",
+  "@onboardingBankSelectBank": { "description": "Bank selection validation" },
+
+  "onboardingBankSelectAccountType": "Selecciona un tipo de cuenta.",
+  "@onboardingBankSelectAccountType": { "description": "Account type selection validation" },
+
+  "onboardingBankAccountNumberRequired": "El número de cuenta es obligatorio.",
+  "@onboardingBankAccountNumberRequired": { "description": "Account number required validation" },
+
+  "onboardingBankAccountNumberMinDigits": "El número de cuenta debe tener al menos 8 dígitos.",
+  "@onboardingBankAccountNumberMinDigits": { "description": "Account number min digits validation" },
+
+  "onboardingBankHolderRequired": "El nombre del titular es obligatorio.",
+  "@onboardingBankHolderRequired": { "description": "Holder name required validation" },
+
+  "onboardingBankSelectDocType": "Selecciona tipo de documento.",
+  "@onboardingBankSelectDocType": { "description": "Doc type selection validation" },
+
+  "onboardingBankDocNumberRequired": "El número de documento es obligatorio.",
+  "@onboardingBankDocNumberRequired": { "description": "Doc number required validation" },
+
+
+
+  "onboardingAvailabilityTitle": "Tu disponibilidad",
+  "@onboardingAvailabilityTitle": { "description": "Step 5 title" },
+
+  "onboardingAvailabilitySubtitle": "Configura los días y horarios en los que estás disponible para prestar servicios.",
+  "@onboardingAvailabilitySubtitle": { "description": "Step 5 subtitle" },
+
+  "onboardingAvailabilityActiveDays": "{count} día{suffix} activo{suffix}",
+  "@onboardingAvailabilityActiveDays": {
+    "description": "Active days count summary",
+    "placeholders": {
+      "count": { "type": "int" },
+      "suffix": { "type": "String" }
+    }
+  },
+
+  "onboardingAvailabilityRequired": "Debes activar al menos un día con horario.",
+  "@onboardingAvailabilityRequired": { "description": "Availability required validation" },
+
+  "onboardingAvailabilityTimeError": "En {dayName}: la hora de inicio debe ser antes que la hora de fin.",
+  "@onboardingAvailabilityTimeError": {
+    "description": "Time validation error for a day",
+    "placeholders": {
+      "dayName": { "type": "String" }
+    }
+  },
+
+  "onboardingAvailabilityAddSlot": "Agregar franja",
+  "@onboardingAvailabilityAddSlot": { "description": "Add time slot button" },
+
+  "onboardingAvailabilityFrom": "Desde",
+  "@onboardingAvailabilityFrom": { "description": "Time slot start label" },
+
+  "onboardingAvailabilityTo": "Hasta",
+  "@onboardingAvailabilityTo": { "description": "Time slot end label" },
+
+  "dayMonday": "Lunes",
+  "@dayMonday": { "description": "Monday" },
+
+  "dayTuesday": "Martes",
+  "@dayTuesday": { "description": "Tuesday" },
+
+  "dayWednesday": "Miercoles",
+  "@dayWednesday": { "description": "Wednesday" },
+
+  "dayThursday": "Jueves",
+  "@dayThursday": { "description": "Thursday" },
+
+  "dayFriday": "Viernes",
+  "@dayFriday": { "description": "Friday" },
+
+  "daySaturday": "Sabado",
+  "@daySaturday": { "description": "Saturday" },
+
+  "daySunday": "Domingo",
+  "@daySunday": { "description": "Sunday" },
+
+  "dayMondayShort": "Lun",
+  "@dayMondayShort": { "description": "Mon abbreviation" },
+
+  "dayTuesdayShort": "Mar",
+  "@dayTuesdayShort": { "description": "Tue abbreviation" },
+
+  "dayWednesdayShort": "Mie",
+  "@dayWednesdayShort": { "description": "Wed abbreviation" },
+
+  "dayThursdayShort": "Jue",
+  "@dayThursdayShort": { "description": "Thu abbreviation" },
+
+  "dayFridayShort": "Vie",
+  "@dayFridayShort": { "description": "Fri abbreviation" },
+
+  "daySaturdayShort": "Sab",
+  "@daySaturdayShort": { "description": "Sat abbreviation" },
+
+  "daySundayShort": "Dom",
+  "@daySundayShort": { "description": "Sun abbreviation" },
+
+
+
+  "onboardingReviewTitle": "Revisa tu solicitud",
+  "@onboardingReviewTitle": { "description": "Step 6 title" },
+
+  "onboardingReviewSubtitle": "Verifica que toda la información sea correcta antes de enviar tu solicitud de verificación.",
+  "@onboardingReviewSubtitle": { "description": "Step 6 subtitle" },
+
+  "onboardingReviewAllReady": "¡Todo listo!",
+  "@onboardingReviewAllReady": { "description": "All steps complete label" },
+
+  "onboardingReviewProgress": "Progreso del registro",
+  "@onboardingReviewProgress": { "description": "Registration progress label" },
+
+  "onboardingReviewCanSubmit": "Ya puedes enviar tu solicitud.",
+  "@onboardingReviewCanSubmit": { "description": "Ready to submit message" },
+
+  "onboardingReviewCompleteSteps": "Completa los pasos faltantes para enviar.",
+  "@onboardingReviewCompleteSteps": { "description": "Incomplete steps message" },
+
+  "onboardingReviewSectionProfile": "Perfil",
+  "@onboardingReviewSectionProfile": { "description": "Profile review section title" },
+
+  "onboardingReviewSectionCategories": "Categorías",
+  "@onboardingReviewSectionCategories": { "description": "Categories review section title" },
+
+  "onboardingReviewSectionDocuments": "Documentos",
+  "@onboardingReviewSectionDocuments": { "description": "Documents review section title" },
+
+  "onboardingReviewSectionBank": "Cuenta bancaria",
+  "@onboardingReviewSectionBank": { "description": "Bank account review section title" },
+
+  "onboardingReviewSectionAvailability": "Disponibilidad",
+  "@onboardingReviewSectionAvailability": { "description": "Availability review section title" },
+
+  "onboardingReviewDescription": "Descripción",
+  "@onboardingReviewDescription": { "description": "Description info row label" },
+
+  "onboardingReviewAddress": "Dirección",
+  "@onboardingReviewAddress": { "description": "Address info row label" },
+
+  "onboardingReviewNoCategories": "Sin categorías seleccionadas",
+  "@onboardingReviewNoCategories": { "description": "No categories selected placeholder" },
+
+  "onboardingReviewDocsUploaded": "{uploaded}/{total} documentos subidos",
+  "@onboardingReviewDocsUploaded": {
+    "description": "Documents uploaded count",
+    "placeholders": {
+      "uploaded": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+
+  "onboardingReviewBankName": "Banco",
+  "@onboardingReviewBankName": { "description": "Bank name info row label" },
+
+  "onboardingReviewBankHolder": "Titular",
+  "@onboardingReviewBankHolder": { "description": "Account holder info row label" },
+
+  "onboardingReviewNoBank": "Sin cuenta configurada",
+  "@onboardingReviewNoBank": { "description": "No bank account placeholder" },
+
+  "onboardingReviewNoSchedule": "Sin horarios configurados",
+  "@onboardingReviewNoSchedule": { "description": "No schedule placeholder" },
+
+  "onboardingReviewInfoNote": "Al enviar tu solicitud, un administrador revisará tu información y documentos. Este proceso normalmente toma de 24 a 48 horas.",
+  "@onboardingReviewInfoNote": { "description": "Review submission info note" },
+
+  "onboardingReviewSubmitButton": "Enviar para verificación",
+  "@onboardingReviewSubmitButton": { "description": "Submit for verification button" },
+
+  "onboardingReviewCompleteAllSteps": "Completa todos los pasos antes de enviar tu solicitud.",
+  "@onboardingReviewCompleteAllSteps": { "description": "Error when not all steps complete" },
+
+
+
+  "onboardingSuccessTitle": "Tu solicitud ha sido enviada",
+  "@onboardingSuccessTitle": { "description": "Success screen title" },
+
+  "onboardingSuccessReviewTime": "Un administrador la revisará en 24-48 horas.",
+  "@onboardingSuccessReviewTime": { "description": "Review time notice" },
+
+  "onboardingSuccessNotification": "Te notificaremos cuando tu cuenta sea aprobada para que puedas comenzar a recibir solicitudes de servicio.",
+  "@onboardingSuccessNotification": { "description": "Notification info text" },
+
+  "onboardingSuccessGoHome": "Volver al inicio",
+  "@onboardingSuccessGoHome": { "description": "Go to home button" },
+
+  "onboardingSuccessViewStatus": "Ver estado de solicitud",
+  "@onboardingSuccessViewStatus": { "description": "View application status link" },
+
+
+
+  "profileTitle": "Mi Perfil",
+  "@profileTitle": { "description": "Profile screen title" },
+
+  "profileSectionGeneral": "General",
+  "@profileSectionGeneral": { "description": "General section header" },
+
+  "profileEditProfile": "Editar Perfil",
+  "@profileEditProfile": { "description": "Edit profile menu item title" },
+
+  "profileEditProfileSubtitle": "Nombre, teléfono, foto",
+  "@profileEditProfileSubtitle": { "description": "Edit profile menu item subtitle" },
+
+  "profileServiceHistory": "Historial de Servicios",
+  "@profileServiceHistory": { "description": "Service history menu item title" },
+
+  "profileServiceHistorySubtitle": "Tus servicios pasados",
+  "@profileServiceHistorySubtitle": { "description": "Service history menu item subtitle" },
+
+  "profileSectionSupport": "Soporte",
+  "@profileSectionSupport": { "description": "Support section header" },
+
+  "profileHelpCenter": "Centro de Ayuda",
+  "@profileHelpCenter": { "description": "Help center menu item title" },
+
+  "profileHelpCenterSubtitle": "Preguntas frecuentes y soporte",
+  "@profileHelpCenterSubtitle": { "description": "Help center menu item subtitle" },
+
+  "profileTermsAndConditions": "Términos y Condiciones",
+  "@profileTermsAndConditions": { "description": "Terms and conditions menu item" },
+
+  "profilePrivacyPolicy": "Política de Privacidad",
+  "@profilePrivacyPolicy": { "description": "Privacy policy menu item" },
+
+  "profileLogout": "Cerrar Sesión",
+  "@profileLogout": { "description": "Logout menu item and dialog title" },
+
+  "profileLogoutConfirmation": "¿Estás seguro de que quieres cerrar sesión?",
+  "@profileLogoutConfirmation": { "description": "Logout confirmation message" },
+
+  "profileVersion": "Tavuel v{version}",
+  "@profileVersion": {
+    "description": "App version display",
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+
+  "profileProviderMode": "Modo Proveedor",
+  "@profileProviderMode": { "description": "Provider mode toggle title" },
+
+  "profileProviderModeActive": "Estás recibiendo solicitudes de servicio",
+  "@profileProviderModeActive": { "description": "Provider mode active subtitle" },
+
+  "profileProviderModeInactive": "Activa para recibir solicitudes",
+  "@profileProviderModeInactive": { "description": "Provider mode inactive subtitle" },
+
+  "profileLoadError": "No se pudo cargar el perfil",
+  "@profileLoadError": { "description": "Profile load error message" },
+
+  "profileRoleProvider": "Modo Proveedor",
+  "@profileRoleProvider": { "description": "Provider role badge label (provider mode)" },
+
+  "profileRoleClient": "Modo Cliente",
+  "@profileRoleClient": { "description": "Client role badge label (client mode)" },
+
+  "profileRoleAdmin": "Administrador",
+  "@profileRoleAdmin": { "description": "Admin role badge label" },
+
+  "profileRoleDefault": "Cliente",
+  "@profileRoleDefault": { "description": "Default role badge label" },
+
+
+
+  "verificationPendingDocumentsTitle": "Documentos Pendientes",
+  "@verificationPendingDocumentsTitle": { "description": "Verification status: pending documents title" },
+
+  "verificationPendingDocumentsDesc": "Completa el proceso de registro subiendo tus documentos para ser verificado.",
+  "@verificationPendingDocumentsDesc": { "description": "Verification status: pending documents description" },
+
+  "verificationDocumentsSubmittedTitle": "Documentos Enviados",
+  "@verificationDocumentsSubmittedTitle": { "description": "Verification status: documents submitted title" },
+
+  "verificationDocumentsSubmittedDesc": "Tus documentos fueron enviados y están en espera de revisión.",
+  "@verificationDocumentsSubmittedDesc": { "description": "Verification status: documents submitted description" },
+
+  "verificationUnderReviewTitle": "En Revisión",
+  "@verificationUnderReviewTitle": { "description": "Verification status: under review title" },
+
+  "verificationUnderReviewDesc": "Nuestro equipo está revisando tu información. Te notificaremos pronto.",
+  "@verificationUnderReviewDesc": { "description": "Verification status: under review description" },
+
+  "verificationApprovedTitle": "Verificado",
+  "@verificationApprovedTitle": { "description": "Verification status: approved title" },
+
+  "verificationApprovedDesc": "Tu perfil de proveedor ha sido aprobado.",
+  "@verificationApprovedDesc": { "description": "Verification status: approved description" },
+
+  "verificationRejectedTitle": "Rechazado",
+  "@verificationRejectedTitle": { "description": "Verification status: rejected title" },
+
+  "verificationRejectedDesc": "Tu solicitud fue rechazada. Revisa los detalles y vuelve a intentar.",
+  "@verificationRejectedDesc": { "description": "Verification status: rejected description" },
+
+  "verificationUnknownTitle": "Estado Desconocido",
+  "@verificationUnknownTitle": { "description": "Verification status: unknown title" },
+
+  "verificationUnknownDesc": "No pudimos determinar el estado de tu verificación.",
+  "@verificationUnknownDesc": { "description": "Verification status: unknown description" },
+
+
+
+  "becomeProviderTitle": "¿Quieres ser proveedor?",
+  "@becomeProviderTitle": { "description": "Become provider banner title" },
+
+  "becomeProviderSubtitle": "Ofrece tus servicios y genera ingresos",
+  "@becomeProviderSubtitle": { "description": "Become provider banner subtitle" },
+
+  "becomeProviderButton": "Comenzar",
+  "@becomeProviderButton": { "description": "Become provider banner button" },
+
+
+
+  "dashboardTitle": "Panel de Proveedor",
+  "@dashboardTitle": { "description": "Provider dashboard screen title" },
+
+  "dashboardGreeting": "Hola, {name}!",
+  "@dashboardGreeting": {
+    "description": "Dashboard greeting",
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+
+  "dashboardDefaultName": "Proveedor",
+  "@dashboardDefaultName": { "description": "Default provider name" },
+
+  "dashboardActivitySummary": "Resumen de tu actividad",
+  "@dashboardActivitySummary": { "description": "Activity summary subtitle" },
+
+  "dashboardRating": "Calificación",
+  "@dashboardRating": { "description": "Rating stat card label" },
+
+  "dashboardServices": "Servicios",
+  "@dashboardServices": { "description": "Services stat card label" },
+
+  "dashboardIncome": "Ingresos",
+  "@dashboardIncome": { "description": "Income stat card label" },
+
+  "dashboardRecentServices": "Servicios Recientes",
+  "@dashboardRecentServices": { "description": "Recent services section title" },
+
+  "dashboardNoRecentServices": "Sin servicios recientes",
+  "@dashboardNoRecentServices": { "description": "No recent services title" },
+
+  "dashboardNoRecentServicesDesc": "Tus próximos servicios aparecerán aquí.",
+  "@dashboardNoRecentServicesDesc": { "description": "No recent services description" },
+
+
+
+  "providerServicesTitle": "Mis Servicios y Precios",
+  "@providerServicesTitle": { "description": "Provider services screen title" },
+
+  "providerServicesEmpty": "Sin servicios configurados",
+  "@providerServicesEmpty": { "description": "Empty services title" },
+
+  "providerServicesEmptyDesc": "Agrega los servicios que ofreces con sus precios para que los clientes puedan encontrarte.",
+  "@providerServicesEmptyDesc": { "description": "Empty services description" },
+
+  "providerServicesAdd": "Agregar Servicio",
+  "@providerServicesAdd": { "description": "Add service button" },
+
+
+
+  "providerRequestsTitle": "Solicitudes Entrantes",
+  "@providerRequestsTitle": { "description": "Provider requests screen title" },
+
+  "providerRequestsEmpty": "Sin solicitudes",
+  "@providerRequestsEmpty": { "description": "Empty requests title" },
+
+  "providerRequestsEmptyDesc": "Cuando un cliente solicite tus servicios, la solicitud aparecerá aquí para que puedas aceptarla o rechazarla.",
+  "@providerRequestsEmptyDesc": { "description": "Empty requests description" },
+
+  "providerRequestsAvailable": "Disponible para recibir solicitudes",
+  "@providerRequestsAvailable": { "description": "Available status indicator" },
+
+
+
+  "providerProfileAbout": "Acerca de",
+  "@providerProfileAbout": { "description": "About section title on provider profile" },
+
+  "providerProfileServicesOffered": "Servicios que ofrece",
+  "@providerProfileServicesOffered": { "description": "Services offered section title" },
+
+  "providerProfileRatingsAndReviews": "Calificaciones y Reseñas",
+  "@providerProfileRatingsAndReviews": { "description": "Ratings and reviews section title" },
+
+  "providerProfileRecentReviews": "Reseñas recientes",
+  "@providerProfileRecentReviews": { "description": "Recent reviews section title" },
+
+  "providerProfileViewAll": "Ver todas",
+  "@providerProfileViewAll": { "description": "View all reviews link" },
+
+  "providerProfileViewAllReviews": "Ver todas las reseñas",
+  "@providerProfileViewAllReviews": { "description": "View all reviews button" },
+
+  "providerProfileNoReviews": "Aún no tiene reseñas",
+  "@providerProfileNoReviews": { "description": "No reviews placeholder" },
+
+  "providerProfileRequestService": "Solicitar Servicio",
+  "@providerProfileRequestService": { "description": "Request service button" },
+
+  "providerProfileDefaultName": "Proveedor",
+  "@providerProfileDefaultName": { "description": "Default provider name" },
+
+
+
+  "reviewsTitle": "Reseñas",
+  "@reviewsTitle": { "description": "Reviews screen title" },
+
+  "reviewsAll": "Todas las reseñas",
+  "@reviewsAll": { "description": "All reviews section title" },
+
+  "reviewsCount": "{count} reseñas",
+  "@reviewsCount": {
+    "description": "Reviews count text",
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+
+  "reviewsEmpty": "Sin reseñas aún",
+  "@reviewsEmpty": { "description": "No reviews empty state title" },
+
+  "reviewsEmptyDesc": "Este proveedor aún no tiene reseñas.",
+  "@reviewsEmptyDesc": { "description": "No reviews empty state description" },
+
+  "reviewsDefaultUser": "Usuario",
+  "@reviewsDefaultUser": { "description": "Default user name for reviews" },
+
+
+
+  "createReviewTitle": "Calificar Servicio",
+  "@createReviewTitle": { "description": "Create review screen title" },
+
+  "createReviewQuestion": "¿Cómo fue tu experiencia?",
+  "@createReviewQuestion": { "description": "Rating question" },
+
+  "createReviewHelp": "Tu opinión ayuda a otros usuarios y al proveedor a mejorar.",
+  "@createReviewHelp": { "description": "Rating help text" },
+
+  "createReviewCommentHint": "Escribe tu comentario aquí...",
+  "@createReviewCommentHint": { "description": "Comment field hint" },
+
+  "createReviewCommentLabel": "Comentario",
+  "@createReviewCommentLabel": { "description": "Comment field label" },
+
+  "createReviewCommentRequired": "Por favor escribe un comentario",
+  "@createReviewCommentRequired": { "description": "Comment required validation" },
+
+  "createReviewCommentMinLength": "El comentario debe tener al menos 20 caracteres",
+  "@createReviewCommentMinLength": { "description": "Comment min length validation" },
+
+  "createReviewSubmitButton": "Enviar Reseña",
+  "@createReviewSubmitButton": { "description": "Submit review button" },
+
+  "createReviewSuccess": "Reseña enviada exitosamente",
+  "@createReviewSuccess": { "description": "Review submitted success message" },
+
+  "createReviewRatingRequired": "Selecciona una calificación",
+  "@createReviewRatingRequired": { "description": "Rating required validation" },
+
+  "createReviewRatingVeryBad": "Muy malo",
+  "@createReviewRatingVeryBad": { "description": "1-star rating label" },
+
+  "createReviewRatingBad": "Malo",
+  "@createReviewRatingBad": { "description": "2-star rating label" },
+
+  "createReviewRatingAverage": "Regular",
+  "@createReviewRatingAverage": { "description": "3-star rating label" },
+
+  "createReviewRatingGood": "Bueno",
+  "@createReviewRatingGood": { "description": "4-star rating label" },
+
+  "createReviewRatingExcellent": "Excelente",
+  "@createReviewRatingExcellent": { "description": "5-star rating label" },
+
+  "createReviewRatingDefault": "Toca las estrellas para calificar",
+  "@createReviewRatingDefault": { "description": "Default rating instruction" },
+
+
+
+  "navHome": "Inicio",
+  "@navHome": { "description": "Bottom nav: Home tab" },
+
+  "navSearch": "Buscar",
+  "@navSearch": { "description": "Bottom nav: Search tab" },
+
+  "navServices": "Servicios",
+  "@navServices": { "description": "Bottom nav: Services tab" },
+
+  "navNotifications": "Avisos",
+  "@navNotifications": { "description": "Bottom nav: Notifications tab" },
+
+  "navProfile": "Perfil",
+  "@navProfile": { "description": "Bottom nav: Profile tab" },
+
+  "navDashboard": "Dashboard",
+  "@navDashboard": { "description": "Bottom nav: Dashboard tab (provider)" },
+
+  "navRequests": "Solicitudes",
+  "@navRequests": { "description": "Bottom nav: Requests tab (provider)" },
+
+
+
+  "commonNext": "Siguiente",
+  "@commonNext": { "description": "Next button" },
+
+  "commonCancel": "Cancelar",
+  "@commonCancel": { "description": "Cancel button" },
+
+  "commonRetry": "Reintentar",
+  "@commonRetry": { "description": "Retry button" },
+
+  "commonOk": "OK",
+  "@commonOk": { "description": "OK button" },
+
+  "commonSave": "Guardar",
+  "@commonSave": { "description": "Save button" },
+
+  "commonLoading": "Cargando...",
+  "@commonLoading": { "description": "Generic loading text" },
+
+
+
+  "errorUnexpected": "Ocurrió un error inesperado.",
+  "@errorUnexpected": { "description": "Generic unexpected error" },
+
+  "errorNetwork": "Error de conexión. Verifica tu internet.",
+  "@errorNetwork": { "description": "Network connection error" },
+
+  "errorSessionExpired": "Tu sesión ha expirado. Inicia sesión nuevamente.",
+  "@errorSessionExpired": { "description": "Session expired error" },
+
+  "errorServer": "Error del servidor. Intenta más tarde.",
+  "@errorServer": { "description": "Server error" },
+
+  "errorValidation": "Los datos ingresados no son válidos.",
+  "@errorValidation": { "description": "Validation error" },
+
+  "errorNotFound": "Recurso no encontrado.",
+  "@errorNotFound": { "description": "Resource not found error" },
+
+  "errorForbidden": "No tienes permisos para realizar esta acción.",
+  "@errorForbidden": { "description": "Forbidden error" },
+
+  "errorCache": "Error al acceder a los datos almacenados.",
+  "@errorCache": { "description": "Cache/storage error" },
+
+  "errorTimeout": "La conexión ha tardado demasiado. Por favor verifica tu internet.",
+  "@errorTimeout": { "description": "Connection timeout error" },
+
+  "errorConnectionFailed": "No se pudo conectar al servidor. Verifica tu conexión a internet.",
+  "@errorConnectionFailed": { "description": "Connection failed error" },
+
+  "errorRequestCancelled": "La solicitud fue cancelada.",
+  "@errorRequestCancelled": { "description": "Request cancelled error" },
+
+  "errorSecurityConnection": "Error de seguridad en la conexión.",
+  "@errorSecurityConnection": { "description": "Bad certificate error" },
+
+  "errorUnexpectedRetry": "Ocurrió un error inesperado. Intenta de nuevo.",
+  "@errorUnexpectedRetry": { "description": "Unexpected error with retry suggestion" },
+
+  "errorServerDefault": "Error del servidor.",
+  "@errorServerDefault": { "description": "Default server error" },
+
+  "errorDataInvalid": "Los datos enviados no son válidos.",
+  "@errorDataInvalid": { "description": "Invalid data sent to server" },
+
+  "errorTooManyRequests": "Demasiadas solicitudes. Espera un momento.",
+  "@errorTooManyRequests": { "description": "Rate limit error" },
+
+  "errorInternalServer": "Error interno del servidor. Intenta más tarde.",
+  "@errorInternalServer": { "description": "Internal server error" },
+
+  "errorLoadingData": "Error al cargar los datos: {details}",
+  "@errorLoadingData": {
+    "description": "Error loading data with details",
+    "placeholders": {
+      "details": { "type": "String" }
+    }
+  },
+
+
+
+  "errorFailureServer": "Error del servidor.",
+  "@errorFailureServer": { "description": "Server failure default message" },
+
+  "errorFailureNetwork": "Error de conexión.",
+  "@errorFailureNetwork": { "description": "Network failure default message" },
+
+  "errorFailureAuth": "Error de autenticación.",
+  "@errorFailureAuth": { "description": "Auth failure default message" },
+
+  "errorFailureCache": "Error de almacenamiento local.",
+  "@errorFailureCache": { "description": "Cache failure default message" },
+
+  "errorFailureValidation": "Error de validación.",
+  "@errorFailureValidation": { "description": "Validation failure default message" },
+
+
+
+  "validatorFieldRequired": "{fieldName} es obligatorio.",
+  "@validatorFieldRequired": {
+    "description": "Generic required field validation",
+    "placeholders": {
+      "fieldName": { "type": "String" }
+    }
+  },
+
+  "validatorEmailRequired": "El correo electrónico es obligatorio.",
+  "@validatorEmailRequired": { "description": "Email required validation" },
+
+  "validatorEmailInvalid": "Ingresa un correo electrónico válido.",
+  "@validatorEmailInvalid": { "description": "Email format validation" },
+
+  "validatorPasswordRequired": "La contraseña es obligatoria.",
+  "@validatorPasswordRequired": { "description": "Password required validation" },
+
+  "validatorPasswordMinLength": "La contraseña debe tener al menos 8 caracteres.",
+  "@validatorPasswordMinLength": { "description": "Password min length validation" },
+
+  "validatorPasswordUppercase": "Debe contener al menos una letra mayúscula.",
+  "@validatorPasswordUppercase": { "description": "Password uppercase validation" },
+
+  "validatorPasswordLowercase": "Debe contener al menos una letra minúscula.",
+  "@validatorPasswordLowercase": { "description": "Password lowercase validation" },
+
+  "validatorPasswordDigit": "Debe contener al menos un número.",
+  "@validatorPasswordDigit": { "description": "Password digit validation" },
+
+  "validatorPasswordSpecial": "Debe contener al menos un carácter especial.",
+  "@validatorPasswordSpecial": { "description": "Password special character validation" },
+
+  "validatorPasswordMismatch": "Las contraseñas no coinciden.",
+  "@validatorPasswordMismatch": { "description": "Passwords don't match validation" },
+
+  "validatorPhoneRequired": "El número de teléfono es obligatorio.",
+  "@validatorPhoneRequired": { "description": "Phone required validation" },
+
+  "validatorPhoneInvalid": "Ingresa un número de celular colombiano válido (ej: 300 123 4567).",
+  "@validatorPhoneInvalid": { "description": "Phone format validation" },
+
+  "validatorNameRequired": "{fieldName} es obligatorio.",
+  "@validatorNameRequired": {
+    "description": "Name required validation",
+    "placeholders": {
+      "fieldName": { "type": "String" }
+    }
+  },
+
+  "validatorNameMinLength": "{fieldName} debe tener al menos 2 caracteres.",
+  "@validatorNameMinLength": {
+    "description": "Name min length validation",
+    "placeholders": {
+      "fieldName": { "type": "String" }
+    }
+  },
+
+  "validatorNameMaxLength": "{fieldName} no debe superar los 50 caracteres.",
+  "@validatorNameMaxLength": {
+    "description": "Name max length validation",
+    "placeholders": {
+      "fieldName": { "type": "String" }
+    }
+  },
+
+  "validatorNameInvalid": "{fieldName} solo puede contener letras y espacios.",
+  "@validatorNameInvalid": {
+    "description": "Name invalid characters validation",
+    "placeholders": {
+      "fieldName": { "type": "String" }
+    }
+  },
+
+  "validatorCedulaRequired": "El número de cédula es obligatorio.",
+  "@validatorCedulaRequired": { "description": "Cedula required validation" },
+
+  "validatorCedulaInvalid": "Ingresa un número de cédula válido (6-10 dígitos).",
+  "@validatorCedulaInvalid": { "description": "Cedula format validation" },
+
+  "validatorAddressRequired": "La dirección es obligatoria.",
+  "@validatorAddressRequired": { "description": "Address required validation" },
+
+  "validatorAddressMinLength": "Ingresa una dirección más detallada.",
+  "@validatorAddressMinLength": { "description": "Address min length validation" },
+
+  "validatorAddressMaxLength": "La dirección no debe superar los 200 caracteres.",
+  "@validatorAddressMaxLength": { "description": "Address max length validation" },
+
+  "validatorPositiveNumber": "{fieldName} debe ser un número positivo.",
+  "@validatorPositiveNumber": {
+    "description": "Positive number validation",
+    "placeholders": {
+      "fieldName": { "type": "String" }
+    }
+  },
+
+  "validatorPriceRequired": "El precio es obligatorio.",
+  "@validatorPriceRequired": { "description": "Price required validation" },
+
+  "validatorPriceInvalid": "Ingresa un precio válido.",
+  "@validatorPriceInvalid": { "description": "Price format validation" },
+
+  "validatorPriceMin": "El precio mínimo es $5.000 COP.",
+  "@validatorPriceMin": { "description": "Minimum price validation" },
+
+  "validatorPriceMax": "El precio máximo es $50.000.000 COP.",
+  "@validatorPriceMax": { "description": "Maximum price validation" },
+
+  "validatorReviewRequired": "Escribe tu comentario sobre el servicio.",
+  "@validatorReviewRequired": { "description": "Review text required validation" },
+
+  "validatorReviewMinLength": "El comentario debe tener al menos 10 caracteres.",
+  "@validatorReviewMinLength": { "description": "Review text min length validation" },
+
+  "validatorReviewMaxLength": "El comentario no debe superar los 500 caracteres.",
+  "@validatorReviewMaxLength": { "description": "Review text max length validation" },
+
+  "validatorPqrRequired": "La descripción del PQR es obligatoria.",
+  "@validatorPqrRequired": { "description": "PQR description required validation" },
+
+  "validatorPqrMinLength": "Describe tu solicitud con al menos 20 caracteres.",
+  "@validatorPqrMinLength": { "description": "PQR description min length validation" },
+
+  "validatorPqrMaxLength": "La descripción no debe superar los 2000 caracteres.",
+  "@validatorPqrMaxLength": { "description": "PQR description max length validation" },
+
+  "validatorMinLength": "{fieldName} debe tener al menos {min} caracteres.",
+  "@validatorMinLength": {
+    "description": "Generic min length validation",
+    "placeholders": {
+      "fieldName": { "type": "String" },
+      "min": { "type": "int" }
+    }
+  },
+
+  "validatorMaxLength": "{fieldName} no debe superar los {max} caracteres.",
+  "@validatorMaxLength": {
+    "description": "Generic max length validation",
+    "placeholders": {
+      "fieldName": { "type": "String" },
+      "max": { "type": "int" }
+    }
+  },
+
+  "validatorScheduleRequired": "Debes configurar al menos un horario.",
+  "@validatorScheduleRequired": { "description": "At least one schedule required" },
+
+  "validatorCategoryRequired": "Debes seleccionar al menos una categoría.",
+  "@validatorCategoryRequired": { "description": "At least one category required" }
 }

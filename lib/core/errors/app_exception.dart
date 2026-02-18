@@ -5,7 +5,7 @@ class AppException implements Exception {
   final dynamic originalError;
 
   const AppException({
-    this.message = 'Ocurrio un error inesperado.',
+    this.message = 'Ocurrió un error inesperado.',
     this.statusCode,
     this.originalError,
   });
@@ -18,7 +18,7 @@ class AppException implements Exception {
 /// Thrown when a network-related error occurs (timeout, no connection, etc.).
 class NetworkException extends AppException {
   const NetworkException({
-    super.message = 'Error de conexion. Verifica tu internet.',
+    super.message = 'Error de conexión. Verifica tu internet.',
     super.statusCode,
     super.originalError,
   });
@@ -31,7 +31,7 @@ class NetworkException extends AppException {
 /// Thrown when the user is not authenticated or the token is invalid/expired.
 class UnauthorizedException extends AppException {
   const UnauthorizedException({
-    super.message = 'Tu sesion ha expirado. Inicia sesion nuevamente.',
+    super.message = 'Tu sesión ha expirado. Inicia sesión nuevamente.',
     super.originalError,
   }) : super(statusCode: 401);
 
@@ -42,7 +42,7 @@ class UnauthorizedException extends AppException {
 /// Thrown when the server returns a 5xx status code.
 class ServerException extends AppException {
   const ServerException({
-    super.message = 'Error del servidor. Intenta mas tarde.',
+    super.message = 'Error del servidor. Intenta más tarde.',
     super.statusCode = 500,
     super.originalError,
   });
@@ -57,7 +57,7 @@ class ValidationException extends AppException {
   final Map<String, String>? fieldErrors;
 
   const ValidationException({
-    super.message = 'Los datos ingresados no son validos.',
+    super.message = 'Los datos ingresados no son válidos.',
     this.fieldErrors,
     super.originalError,
   }) : super(statusCode: 422);
@@ -81,7 +81,7 @@ class NotFoundException extends AppException {
 /// Thrown when the user does not have permission for an action.
 class ForbiddenException extends AppException {
   const ForbiddenException({
-    super.message = 'No tienes permisos para realizar esta accion.',
+    super.message = 'No tienes permisos para realizar esta acción.',
     super.originalError,
   }) : super(statusCode: 403);
 

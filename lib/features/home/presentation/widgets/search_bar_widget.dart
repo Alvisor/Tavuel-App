@@ -9,6 +9,8 @@ class SearchBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = AppColors.of(context);
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
       child: GestureDetector(
@@ -16,22 +18,22 @@ class SearchBarWidget extends StatelessWidget {
         child: Container(
           height: 52,
           decoration: BoxDecoration(
-            color: AppColors.surfaceVariant,
+            color: colors.surfaceVariant,
             borderRadius: BorderRadius.circular(16),
           ),
           child: Row(
             children: [
               const SizedBox(width: 16),
-              const Icon(
+              Icon(
                 Icons.search,
-                color: AppColors.textHint,
+                color: colors.textHint,
                 size: 22,
               ),
               const SizedBox(width: 12),
               Text(
-                '¿Qué servicio necesitas?',
+                'Que servicio necesitas?',
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: AppColors.textHint,
+                      color: colors.textHint,
                     ),
               ),
             ],

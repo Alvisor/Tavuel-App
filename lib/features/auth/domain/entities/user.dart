@@ -8,7 +8,11 @@ class User {
   final String status;
   final String? avatarUrl;
   final bool phoneVerified;
+  final bool wantsToBeProvider;
+  final String activeMode;
   final DateTime? createdAt;
+  final String? verificationStatus;
+  final DateTime? providerUpdatedAt;
 
   const User({
     required this.id,
@@ -20,8 +24,15 @@ class User {
     this.status = 'ACTIVE',
     this.avatarUrl,
     this.phoneVerified = false,
+    this.wantsToBeProvider = false,
+    this.activeMode = 'CLIENT',
     this.createdAt,
+    this.verificationStatus,
+    this.providerUpdatedAt,
   });
 
   String get fullName => '$firstName $lastName';
+
+  bool get isProvider => role == 'PROVIDER';
+  bool get isProviderMode => activeMode == 'PROVIDER';
 }

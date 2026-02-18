@@ -110,6 +110,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
     required String firstName,
     required String lastName,
     required String phone,
+    bool wantsToBeProvider = false,
   }) async {
     state = state.copyWith(status: AuthStatus.loading, errorMessage: null);
 
@@ -119,6 +120,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
       firstName: firstName,
       lastName: lastName,
       phone: phone,
+      wantsToBeProvider: wantsToBeProvider,
     );
     return result.when(
       success: (user) {

@@ -63,14 +63,14 @@ class ServerFailure extends Failure {
 
 class NetworkFailure extends Failure {
   const NetworkFailure({
-    super.message = 'Error de conexion.',
+    super.message = 'Error de conexión.',
     super.stackTrace,
   });
 }
 
 class AuthFailure extends Failure {
   const AuthFailure({
-    super.message = 'Error de autenticacion.',
+    super.message = 'Error de autenticación.',
     super.statusCode = 401,
     super.stackTrace,
   });
@@ -87,7 +87,7 @@ class ValidationFailure extends Failure {
   final Map<String, String>? fieldErrors;
 
   const ValidationFailure({
-    super.message = 'Error de validacion.',
+    super.message = 'Error de validación.',
     this.fieldErrors,
     super.statusCode = 422,
     super.stackTrace,

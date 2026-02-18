@@ -1,7 +1,7 @@
 name: tavuel_app
 description: Tavuel - Home services platform connecting customers with trusted service providers in Bogota, Colombia.
 publish_to: 'none'
-version: 1.0.0+1
+version: 0.1.0+1
 
 environment:
   sdk: '>=3.2.0 <4.0.0'
@@ -42,6 +42,7 @@ dependencies:
 
   # Storage
   flutter_secure_storage: ^9.0.0
+  shared_preferences: ^2.2.3
 
   # Location & Maps
   geolocator: ^11.0.0

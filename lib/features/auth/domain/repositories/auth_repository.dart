@@ -13,6 +13,7 @@ abstract class AuthRepository {
     required String firstName,
     required String lastName,
     required String phone,
+    bool wantsToBeProvider = false,
   });
 
   Future<Result<User>> googleSignIn();

@@ -13,6 +13,7 @@ class RegisterUsecase {
     required String firstName,
     required String lastName,
     required String phone,
+    bool wantsToBeProvider = false,
   }) {
     return _repository.register(
       email: email,
@@ -20,6 +21,7 @@ class RegisterUsecase {
       firstName: firstName,
       lastName: lastName,
       phone: phone,
+      wantsToBeProvider: wantsToBeProvider,
     );
   }
 }

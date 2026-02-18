@@ -26,6 +26,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
   final _confirmPasswordController = TextEditingController();
   bool _obscurePassword = true;
   bool _obscureConfirmPassword = true;
+  bool _wantsToBeProvider = false;
 
   @override
   void initState() {
@@ -55,10 +56,15 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
           firstName: _firstNameController.text.trim(),
           lastName: _lastNameController.text.trim(),
           phone: phone ?? _phoneController.text.trim(),
+          wantsToBeProvider: _wantsToBeProvider,
         );
 
     if (success && mounted) {
-      context.go(AppRoutes.home);
+      if (_wantsToBeProvider) {
+        context.go('/provider-onboarding');
+      } else {
+        context.go(AppRoutes.home);
+      }
     }
   }
 
@@ -66,11 +72,11 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
   Widget build(BuildContext context) {
     final authState = ref.watch(authProvider);
     final isLoading = authState.status == AuthStatus.loading;
+    final colors = AppColors.of(context);
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: colors.surface,
       appBar: AppBar(
-        backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, size: 20),
@@ -96,7 +102,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                 Text(
                   'Completa tus datos para comenzar',
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        color: AppColors.textSecondary,
+                        color: colors.textSecondary,
                       ),
                 ),
 
@@ -107,19 +113,19 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                   Container(
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      color: AppColors.error.withOpacity(0.1),
+                      color: colors.error.withOpacity(0.1),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Row(
                       children: [
-                        const Icon(Icons.error_outline,
-                            color: AppColors.error, size: 20),
+                        Icon(Icons.error_outline,
+                            color: colors.error, size: 20),
                         const SizedBox(width: 8),
                         Expanded(
                           child: Text(
                             authState.errorMessage!,
-                            style: const TextStyle(
-                              color: AppColors.error,
+                            style: TextStyle(
+                              color: colors.error,
                               fontSize: 13,
                             ),
                           ),
@@ -147,7 +153,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                     Expanded(
                       child: AuthTextField(
                         controller: _lastNameController,
-                        hintText: 'Pérez',
+                        hintText: 'Perez',
                         labelText: 'Apellido',
                         prefixIcon: Icons.person_outline,
                         validator: Validators.name,
@@ -163,7 +169,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                 AuthTextField(
                   controller: _emailController,
                   hintText: 'correo@ejemplo.com',
-                  labelText: 'Correo electrónico',
+                  labelText: 'Correo electronico',
                   prefixIcon: Icons.email_outlined,
                   keyboardType: TextInputType.emailAddress,
                   validator: Validators.email,
@@ -175,7 +181,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                 AuthTextField(
                   controller: _phoneController,
                   hintText: '3001234567',
-                  labelText: 'Teléfono',
+                  labelText: 'Telefono',
                   prefixIcon: Icons.phone_outlined,
                   keyboardType: TextInputType.phone,
                   validator: Validators.phone,
@@ -190,8 +196,8 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                 // Password
                 AuthTextField(
                   controller: _passwordController,
-                  hintText: 'Mínimo 8 caracteres',
-                  labelText: 'Contraseña',
+                  hintText: 'Minimo 8 caracteres',
+                  labelText: 'Contrasena',
                   prefixIcon: Icons.lock_outline,
                   obscureText: _obscurePassword,
                   validator: Validators.password,
@@ -213,8 +219,8 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                 // Confirm password
                 AuthTextField(
                   controller: _confirmPasswordController,
-                  hintText: 'Repite tu contraseña',
-                  labelText: 'Confirmar contraseña',
+                  hintText: 'Repite tu contrasena',
+                  labelText: 'Confirmar contrasena',
                   prefixIcon: Icons.lock_outline,
                   obscureText: _obscureConfirmPassword,
                   textInputAction: TextInputAction.done,
@@ -237,7 +243,28 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                   ),
                 ),
 
-                const SizedBox(height: 32),
+                const SizedBox(height: 16),
+
+                // Want to be provider checkbox
+                CheckboxListTile(
+                  value: _wantsToBeProvider,
+                  onChanged: (value) {
+                    setState(() => _wantsToBeProvider = value ?? false);
+                  },
+                  title: const Text(
+                    'Quiero ofrecer mis servicios como proveedor',
+                    style: TextStyle(fontSize: 14),
+                  ),
+                  subtitle: Text(
+                    'Podras completar tu perfil de proveedor despues',
+                    style: TextStyle(fontSize: 12, color: colors.textHint),
+                  ),
+                  controlAffinity: ListTileControlAffinity.leading,
+                  contentPadding: EdgeInsets.zero,
+                  activeColor: colors.primary,
+                ),
+
+                const SizedBox(height: 16),
 
                 // Register button
                 SizedBox(
@@ -245,12 +272,12 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                   child: ElevatedButton(
                     onPressed: isLoading ? null : _handleRegister,
                     child: isLoading
-                        ? const SizedBox(
+                        ? SizedBox(
                             height: 22,
                             width: 22,
                             child: CircularProgressIndicator(
                               strokeWidth: 2.5,
-                              color: Colors.white,
+                              color: colors.textOnPrimary,
                             ),
                           )
                         : const Text('Crear Cuenta'),
@@ -264,17 +291,17 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      '¿Ya tienes cuenta? ',
+                      'Ya tienes cuenta? ',
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: AppColors.textSecondary,
+                            color: colors.textSecondary,
                           ),
                     ),
                     GestureDetector(
                       onTap: () => context.pop(),
                       child: Text(
-                        'Inicia sesión',
+                        'Inicia sesion',
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              color: AppColors.primary,
+                              color: colors.primary,
                               fontWeight: FontWeight.w600,
                             ),
                       ),

@@ -59,9 +59,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   Widget build(BuildContext context) {
     final authState = ref.watch(authProvider);
     final isLoading = authState.status == AuthStatus.loading;
+    final colors = AppColors.of(context);
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: colors.surface,
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -78,23 +79,23 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     width: 90,
                     height: 90,
                     decoration: BoxDecoration(
-                      color: AppColors.primary,
+                      color: colors.primary,
                       borderRadius: BorderRadius.circular(22),
                       boxShadow: [
                         BoxShadow(
-                          color: AppColors.primary.withOpacity(0.3),
+                          color: colors.primary.withOpacity(0.3),
                           blurRadius: 20,
                           offset: const Offset(0, 8),
                         ),
                       ],
                     ),
-                    child: const Center(
+                    child: Center(
                       child: Text(
                         'T',
                         style: TextStyle(
                           fontSize: 48,
                           fontWeight: FontWeight.w700,
-                          color: Colors.white,
+                          color: colors.textOnPrimary,
                         ),
                       ),
                     ),
@@ -111,9 +112,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Inicia sesión para continuar',
+                  'Inicia sesion para continuar',
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        color: AppColors.textSecondary,
+                        color: colors.textSecondary,
                       ),
                   textAlign: TextAlign.center,
                 ),
@@ -125,19 +126,19 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   Container(
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      color: AppColors.error.withOpacity(0.1),
+                      color: colors.error.withOpacity(0.1),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Row(
                       children: [
-                        const Icon(Icons.error_outline,
-                            color: AppColors.error, size: 20),
+                        Icon(Icons.error_outline,
+                            color: colors.error, size: 20),
                         const SizedBox(width: 8),
                         Expanded(
                           child: Text(
                             authState.errorMessage!,
-                            style: const TextStyle(
-                              color: AppColors.error,
+                            style: TextStyle(
+                              color: colors.error,
                               fontSize: 13,
                             ),
                           ),
@@ -152,7 +153,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 AuthTextField(
                   controller: _emailController,
                   hintText: 'correo@ejemplo.com',
-                  labelText: 'Correo electrónico',
+                  labelText: 'Correo electronico',
                   prefixIcon: Icons.email_outlined,
                   keyboardType: TextInputType.emailAddress,
                   validator: Validators.email,
@@ -163,8 +164,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 // Password
                 AuthTextField(
                   controller: _passwordController,
-                  hintText: 'Tu contraseña',
-                  labelText: 'Contraseña',
+                  hintText: 'Tu contrasena',
+                  labelText: 'Contrasena',
                   prefixIcon: Icons.lock_outline,
                   obscureText: _obscurePassword,
                   textInputAction: TextInputAction.done,
@@ -191,15 +192,15 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   child: ElevatedButton(
                     onPressed: isLoading ? null : _handleLogin,
                     child: isLoading
-                        ? const SizedBox(
+                        ? SizedBox(
                             height: 22,
                             width: 22,
                             child: CircularProgressIndicator(
                               strokeWidth: 2.5,
-                              color: Colors.white,
+                              color: colors.textOnPrimary,
                             ),
                           )
-                        : const Text('Iniciar Sesión'),
+                        : const Text('Iniciar Sesion'),
                   ),
                 ),
 
@@ -212,7 +213,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Text(
-                        'o continúa con',
+                        'o continua con',
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                     ),
@@ -239,17 +240,17 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      '¿No tienes cuenta? ',
+                      'No tienes cuenta? ',
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: AppColors.textSecondary,
+                            color: colors.textSecondary,
                           ),
                     ),
                     GestureDetector(
                       onTap: () => context.push(AppRoutes.register),
                       child: Text(
-                        'Regístrate',
+                        'Registrate',
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              color: AppColors.primary,
+                              color: colors.primary,
                               fontWeight: FontWeight.w600,
                             ),
                       ),

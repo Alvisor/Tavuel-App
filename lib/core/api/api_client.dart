@@ -242,14 +242,14 @@ class ApiClient {
       case DioExceptionType.receiveTimeout:
         return NetworkException(
           message:
-              'La conexion ha tardado demasiado. Por favor verifica tu internet.',
+              'La conexión ha tardado demasiado. Por favor verifica tu internet.',
           statusCode: error.response?.statusCode,
         );
 
       case DioExceptionType.connectionError:
         return NetworkException(
           message:
-              'No se pudo conectar al servidor. Verifica tu conexion a internet.',
+              'No se pudo conectar al servidor. Verifica tu conexión a internet.',
           statusCode: null,
         );
 
@@ -261,13 +261,13 @@ class ApiClient {
 
       case DioExceptionType.badCertificate:
         return const NetworkException(
-          message: 'Error de seguridad en la conexion.',
+          message: 'Error de seguridad en la conexión.',
         );
 
       case DioExceptionType.unknown:
       default:
         return const AppException(
-          message: 'Ocurrio un error inesperado. Intenta de nuevo.',
+          message: 'Ocurrió un error inesperado. Intenta de nuevo.',
         );
     }
   }
@@ -278,7 +278,12 @@ class ApiClient {
 
     String message = 'Error del servidor.';
     if (data is Map<String, dynamic> && data.containsKey('message')) {
-      message = data['message'] as String;
+      final rawMessage = data['message'];
+      if (rawMessage is String) {
+        message = rawMessage;
+      } else if (rawMessage is List) {
+        message = rawMessage.join('. ');
+      }
     }
 
     switch (statusCode) {
@@ -288,7 +293,7 @@ class ApiClient {
         return UnauthorizedException(message: message);
       case 403:
         return AppException(
-          message: 'No tienes permisos para realizar esta accion.',
+          message: 'No tienes permisos para realizar esta acción.',
           statusCode: statusCode,
         );
       case 404:
@@ -300,7 +305,7 @@ class ApiClient {
         return AppException(message: message, statusCode: statusCode);
       case 422:
         return AppException(
-          message: 'Los datos enviados no son validos.',
+          message: 'Los datos enviados no son válidos.',
           statusCode: statusCode,
         );
       case 429:
@@ -310,7 +315,7 @@ class ApiClient {
         );
       case >= 500:
         return ServerException(
-          message: 'Error interno del servidor. Intenta mas tarde.',
+          message: 'Error interno del servidor. Intenta más tarde.',
           statusCode: statusCode,
         );
       default:

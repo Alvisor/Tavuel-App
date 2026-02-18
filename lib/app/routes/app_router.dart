@@ -6,7 +6,21 @@ import '../../features/auth/presentation/providers/auth_provider.dart';
 import '../../features/auth/presentation/screens/login_screen.dart';
 import '../../features/auth/presentation/screens/register_screen.dart';
 import '../../features/auth/presentation/screens/splash_screen.dart';
+import '../../features/bookings/presentation/screens/booking_detail_screen.dart';
+import '../../features/bookings/presentation/screens/create_booking_screen.dart';
+import '../../features/bookings/presentation/screens/create_open_request_screen.dart';
+import '../../features/bookings/presentation/screens/my_bookings_screen.dart';
 import '../../features/home/presentation/screens/home_screen.dart';
+import '../../features/profile/presentation/screens/profile_screen.dart';
+import '../../features/provider_dashboard/presentation/screens/provider_dashboard_screen.dart';
+import '../../features/provider_dashboard/presentation/screens/provider_requests_screen.dart';
+import '../../features/provider_dashboard/presentation/screens/provider_services_screen.dart';
+import '../../features/provider_onboarding/presentation/screens/onboarding_success_screen.dart';
+import '../../features/provider_onboarding/presentation/screens/provider_onboarding_screen.dart';
+import '../../features/provider_search/presentation/screens/provider_profile_screen.dart';
+import '../../features/provider_search/presentation/screens/provider_search_screen.dart';
+import '../../features/reviews/presentation/screens/create_review_screen.dart';
+import '../../features/reviews/presentation/screens/provider_reviews_screen.dart';
 import '../../shared/widgets/scaffold_with_nav_bar.dart';
 
 // Route path constants
@@ -25,6 +39,23 @@ abstract class AppRoutes {
   static const String pqrs = '/pqrs';
   static const String pqrsCreate = '/pqrs/create';
   static const String notifications = '/notifications';
+
+  // Provider onboarding
+  static const String providerOnboarding = '/provider-onboarding';
+  static const String providerOnboardingSuccess =
+      '/provider-onboarding/success';
+
+  // Provider mode tabs
+  static const String providerDashboard = '/provider-dashboard';
+  static const String providerMyServices = '/provider-my-services';
+  static const String providerRequests = '/provider-requests';
+
+  // Provider profile & reviews
+  static const String providerProfile = '/provider-profile/:id';
+  static const String createReview = '/reviews/create/:bookingId';
+
+  // Open requests
+  static const String openRequest = '/open-request';
 }
 
 // Notifier that triggers GoRouter refresh when auth state changes,
@@ -50,7 +81,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
     debugLogDiagnostics: true,
     refreshListenable: authChangeNotifier,
 
-    // Auth redirect guard — reads auth state on each evaluation
+    // Auth redirect guard
     redirect: (BuildContext context, GoRouterState state) {
       final authState = ref.read(authProvider);
       final isAuthenticated = authState.status == AuthStatus.authenticated;
@@ -72,7 +103,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         return null;
       }
 
-      // Done checking: not authenticated + still on splash → login
+      // Done checking: not authenticated + still on splash -> login
       if (!isAuthenticated && !isInitial && currentPath == AppRoutes.splash) {
         return AppRoutes.login;
       }
@@ -82,12 +113,32 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         return AppRoutes.login;
       }
 
-      // If user is authenticated and on login/register/splash → home
+      // If user is authenticated and on login/register/splash -> home or onboarding
       if (isAuthenticated &&
           (currentPath == AppRoutes.login ||
               currentPath == AppRoutes.register ||
               currentPath == AppRoutes.splash)) {
+        // If user just registered and wants to be provider, go to onboarding
+        final user = authState.user;
+        if (currentPath == AppRoutes.register &&
+            user != null &&
+            user.wantsToBeProvider &&
+            user.role != 'PROVIDER') {
+          return AppRoutes.providerOnboarding;
+        }
         return AppRoutes.home;
+      }
+
+      // Guard: si el usuario ya envió onboarding, no puede re-entrar al wizard
+      if (isAuthenticated &&
+          (currentPath == AppRoutes.providerOnboarding ||
+              currentPath == AppRoutes.providerOnboardingSuccess)) {
+        final user = authState.user;
+        if (user != null &&
+            user.verificationStatus != null &&
+            user.verificationStatus != 'PENDING_DOCUMENTS') {
+          return AppRoutes.profile;
+        }
       }
 
       return null;
@@ -113,13 +164,34 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         builder: (context, state) => const RegisterScreen(),
       ),
 
+      // Provider onboarding (standalone, outside bottom nav)
+      GoRoute(
+        path: AppRoutes.providerOnboarding,
+        name: 'provider-onboarding',
+        builder: (context, state) => const ProviderOnboardingScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.providerOnboardingSuccess,
+        name: 'provider-onboarding-success',
+        builder: (context, state) => const OnboardingSuccessScreen(),
+      ),
+
       // Main app with Bottom Navigation
+      // Branches:
+      //   0: Home (client)
+      //   1: Search (client)
+      //   2: Bookings (client)
+      //   3: Dashboard (provider)
+      //   4: My Services (provider)
+      //   5: Requests (provider)
+      //   6: Notifications (shared)
+      //   7: Profile (shared)
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {
           return ScaffoldWithNavBar(navigationShell: navigationShell);
         },
         branches: [
-          // Tab 0: Home
+          // Branch 0: Home (client)
           StatefulShellBranch(
             routes: [
               GoRoute(
@@ -130,7 +202,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             ],
           ),
 
-          // Tab 1: Search
+          // Branch 1: Search (client)
           StatefulShellBranch(
             routes: [
               GoRoute(
@@ -138,29 +210,63 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                 name: 'provider-search',
                 builder: (context, state) {
                   final category = state.uri.queryParameters['category'];
-                  return _PlaceholderScreen(
-                    title: 'Buscar Proveedor',
-                    subtitle:
-                        category != null ? 'Categoría: $category' : null,
+                  return ProviderSearchScreen(
+                    initialCategory: category,
                   );
                 },
               ),
             ],
           ),
 
-          // Tab 2: Bookings
+          // Branch 2: Bookings (client)
           StatefulShellBranch(
             routes: [
               GoRoute(
                 path: AppRoutes.bookings,
                 name: 'bookings',
                 builder: (context, state) =>
-                    const _PlaceholderScreen(title: 'Mis Servicios'),
+                    const MyBookingsScreen(),
               ),
             ],
           ),
 
-          // Tab 3: Notifications
+          // Branch 3: Dashboard (provider)
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: AppRoutes.providerDashboard,
+                name: 'provider-dashboard',
+                builder: (context, state) =>
+                    const ProviderDashboardScreen(),
+              ),
+            ],
+          ),
+
+          // Branch 4: My Services (provider)
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: AppRoutes.providerMyServices,
+                name: 'provider-my-services',
+                builder: (context, state) =>
+                    const ProviderServicesScreen(),
+              ),
+            ],
+          ),
+
+          // Branch 5: Requests (provider)
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: AppRoutes.providerRequests,
+                name: 'provider-requests',
+                builder: (context, state) =>
+                    const ProviderRequestsScreen(),
+              ),
+            ],
+          ),
+
+          // Branch 6: Notifications (shared)
           StatefulShellBranch(
             routes: [
               GoRoute(
@@ -172,17 +278,13 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             ],
           ),
 
-          // Tab 4: Profile
+          // Branch 7: Profile (shared)
           StatefulShellBranch(
             routes: [
               GoRoute(
                 path: AppRoutes.profile,
                 name: 'profile',
-                builder: (context, state) => _ProfilePlaceholder(
-                  onLogout: () {
-                    ref.read(authProvider.notifier).logout();
-                  },
-                ),
+                builder: (context, state) => const ProfileScreen(),
               ),
             ],
           ),
@@ -195,17 +297,26 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         name: 'booking-detail',
         builder: (context, state) {
           final bookingId = state.pathParameters['id']!;
-          return _PlaceholderScreen(
-            title: 'Detalle de Reserva',
-            subtitle: 'ID: $bookingId',
-          );
+          return BookingDetailScreen(bookingId: bookingId);
         },
       ),
       GoRoute(
         path: AppRoutes.bookingCreate,
         name: 'booking-create',
-        builder: (context, state) =>
-            const _PlaceholderScreen(title: 'Crear Reserva'),
+        builder: (context, state) {
+          final providerId =
+              state.uri.queryParameters['providerId'] ?? '';
+          final rawServiceId =
+              state.uri.queryParameters['serviceId'];
+          final serviceId =
+              (rawServiceId != null && rawServiceId.isNotEmpty)
+                  ? rawServiceId
+                  : null;
+          return CreateBookingScreen(
+            providerId: providerId,
+            serviceId: serviceId,
+          );
+        },
       ),
       GoRoute(
         path: AppRoutes.tracking,
@@ -223,11 +334,39 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         name: 'reviews',
         builder: (context, state) {
           final providerId = state.pathParameters['providerId']!;
-          return _PlaceholderScreen(
-            title: 'Resenas',
-            subtitle: 'Proveedor: $providerId',
+          return ProviderReviewsScreen(providerId: providerId);
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.providerProfile,
+        name: 'provider-profile',
+        builder: (context, state) {
+          final id = state.pathParameters['id']!;
+          final extra = state.extra as Map<String, dynamic>?;
+          return ProviderProfileScreen(
+            providerId: id,
+            providerName: extra?['providerName'] as String?,
+            providerAvatarUrl: extra?['providerAvatarUrl'] as String?,
+            providerRating: (extra?['providerRating'] as num?)?.toDouble(),
+            providerBio: extra?['providerBio'] as String?,
+            categories: (extra?['categories'] as List<dynamic>?)
+                ?.cast<String>(),
           );
         },
+      ),
+      GoRoute(
+        path: AppRoutes.createReview,
+        name: 'create-review',
+        builder: (context, state) {
+          final bookingId = state.pathParameters['bookingId']!;
+          return CreateReviewScreen(bookingId: bookingId);
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.openRequest,
+        name: 'open-request',
+        builder: (context, state) =>
+            const CreateOpenRequestScreen(),
       ),
       GoRoute(
         path: AppRoutes.pqrs,
@@ -312,55 +451,6 @@ class _PlaceholderScreen extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     color: Colors.grey,
                   ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-/// Profile placeholder with logout button.
-class _ProfilePlaceholder extends StatelessWidget {
-  final VoidCallback onLogout;
-
-  const _ProfilePlaceholder({required this.onLogout});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Mi Perfil')),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(Icons.person, size: 64, color: Colors.grey),
-            const SizedBox(height: 16),
-            Text(
-              'Mi Perfil',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'En construcción',
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: Colors.grey,
-                  ),
-            ),
-            const SizedBox(height: 32),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
-              child: OutlinedButton.icon(
-                onPressed: onLogout,
-                icon: const Icon(Icons.logout, color: Colors.red),
-                label: const Text(
-                  'Cerrar sesión',
-                  style: TextStyle(color: Colors.red),
-                ),
-                style: OutlinedButton.styleFrom(
-                  side: const BorderSide(color: Colors.red),
-                ),
-              ),
             ),
           ],
         ),

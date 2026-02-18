@@ -49,6 +49,7 @@ class AuthRepositoryImpl implements AuthRepository {
     required String firstName,
     required String lastName,
     required String phone,
+    bool wantsToBeProvider = false,
   }) async {
     try {
       final response = await _datasource.register(
@@ -57,6 +58,7 @@ class AuthRepositoryImpl implements AuthRepository {
         firstName: firstName,
         lastName: lastName,
         phone: phone,
+        wantsToBeProvider: wantsToBeProvider,
       );
       await _storage.saveTokens(
         accessToken: response.accessToken,
@@ -133,7 +135,7 @@ class AuthRepositoryImpl implements AuthRepository {
     } on UnauthorizedException {
       await _storage.clearTokens();
       return Result.failure(
-        const AuthFailure(message: 'Sesion expirada.'),
+        const AuthFailure(message: 'Sesión expirada.'),
       );
     } on AppException catch (e) {
       return Result.failure(Failure(message: e.message));

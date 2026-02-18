@@ -16,6 +16,8 @@ class HomeHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = AppColors.of(context);
+
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
       child: Row(
@@ -23,16 +25,16 @@ class HomeHeader extends StatelessWidget {
           // Avatar
           CircleAvatar(
             radius: 24,
-            backgroundColor: AppColors.primaryLight.withOpacity(0.3),
+            backgroundColor: colors.primaryLight.withOpacity(0.3),
             backgroundImage:
                 avatarUrl != null ? NetworkImage(avatarUrl!) : null,
             child: avatarUrl == null
                 ? Text(
                     userName.isNotEmpty ? userName[0].toUpperCase() : 'U',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w600,
-                      color: AppColors.primary,
+                      color: colors.primary,
                     ),
                   )
                 : null,
@@ -51,7 +53,7 @@ class HomeHeader extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
                 Text(
-                  '¿Qué servicio necesitas hoy?',
+                  'Que servicio necesitas hoy?',
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
               ],
@@ -63,7 +65,7 @@ class HomeHeader extends StatelessWidget {
             onPressed: onNotificationsTap,
             icon: const Icon(Icons.notifications_outlined, size: 26),
             style: IconButton.styleFrom(
-              backgroundColor: AppColors.surfaceVariant,
+              backgroundColor: colors.surfaceVariant,
               padding: const EdgeInsets.all(10),
             ),
           ),

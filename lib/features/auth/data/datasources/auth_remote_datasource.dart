@@ -26,6 +26,7 @@ class AuthRemoteDatasource {
     required String firstName,
     required String lastName,
     required String phone,
+    bool wantsToBeProvider = false,
   }) async {
     final response = await _apiClient.post(
       '/auth/register',
@@ -35,6 +36,7 @@ class AuthRemoteDatasource {
         'firstName': firstName,
         'lastName': lastName,
         'phone': phone,
+        if (wantsToBeProvider) 'wantsToBeProvider': true,
       },
     );
     return AuthResponseModel.fromJson(

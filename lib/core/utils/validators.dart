@@ -18,7 +18,7 @@ abstract class Validators {
   /// Validates a well-formed email address.
   static String? email(String? value) {
     if (value == null || value.trim().isEmpty) {
-      return 'El correo electronico es obligatorio.';
+      return 'El correo electrónico es obligatorio.';
     }
 
     // RFC 5322 simplified pattern
@@ -27,7 +27,7 @@ abstract class Validators {
     );
 
     if (!emailRegex.hasMatch(value.trim())) {
-      return 'Ingresa un correo electronico valido.';
+      return 'Ingresa un correo electrónico válido.';
     }
 
     return null;
@@ -43,27 +43,27 @@ abstract class Validators {
   /// - At least one special character
   static String? password(String? value) {
     if (value == null || value.isEmpty) {
-      return 'La contrasena es obligatoria.';
+      return 'La contraseña es obligatoria.';
     }
 
     if (value.length < 8) {
-      return 'La contrasena debe tener al menos 8 caracteres.';
+      return 'La contraseña debe tener al menos 8 caracteres.';
     }
 
     if (!RegExp(r'[A-Z]').hasMatch(value)) {
-      return 'Debe contener al menos una letra mayuscula.';
+      return 'Debe contener al menos una letra mayúscula.';
     }
 
     if (!RegExp(r'[a-z]').hasMatch(value)) {
-      return 'Debe contener al menos una letra minuscula.';
+      return 'Debe contener al menos una letra minúscula.';
     }
 
     if (!RegExp(r'[0-9]').hasMatch(value)) {
-      return 'Debe contener al menos un numero.';
+      return 'Debe contener al menos un número.';
     }
 
     if (!RegExp(r'[!@#$%^&*(),.?":{}|<>]').hasMatch(value)) {
-      return 'Debe contener al menos un caracter especial.';
+      return 'Debe contener al menos un carácter especial.';
     }
 
     return null;
@@ -71,11 +71,11 @@ abstract class Validators {
 
   /// Validates that a confirmation password matches the original.
   static String? confirmPassword(String? value, String originalPassword) {
-    final requiredError = required(value, 'La confirmacion de contrasena');
+    final requiredError = required(value, 'La confirmación de contraseña');
     if (requiredError != null) return requiredError;
 
     if (value != originalPassword) {
-      return 'Las contrasenas no coinciden.';
+      return 'Las contraseñas no coinciden.';
     }
 
     return null;
@@ -92,7 +92,7 @@ abstract class Validators {
   /// - +57 300 123 4567
   static String? phone(String? value) {
     if (value == null || value.trim().isEmpty) {
-      return 'El numero de telefono es obligatorio.';
+      return 'El número de teléfono es obligatorio.';
     }
 
     // Strip spaces, dashes, parentheses and the country code prefix
@@ -107,7 +107,7 @@ abstract class Validators {
     final colombianMobileRegex = RegExp(r'^3\d{9}$');
 
     if (!colombianMobileRegex.hasMatch(cleaned)) {
-      return 'Ingresa un numero de celular colombiano valido (ej: 300 123 4567).';
+      return 'Ingresa un número de celular colombiano válido (ej: 300 123 4567).';
     }
 
     return null;
@@ -153,13 +153,13 @@ abstract class Validators {
   /// Cedulas are numeric and typically between 6 and 10 digits.
   static String? cedula(String? value) {
     if (value == null || value.trim().isEmpty) {
-      return 'El numero de cedula es obligatorio.';
+      return 'El número de cédula es obligatorio.';
     }
 
     final cleaned = value.replaceAll(RegExp(r'[\s\.\-]'), '');
 
     if (!RegExp(r'^\d{6,10}$').hasMatch(cleaned)) {
-      return 'Ingresa un numero de cedula valido (6-10 digitos).';
+      return 'Ingresa un número de cédula válido (6-10 dígitos).';
     }
 
     return null;
@@ -170,15 +170,15 @@ abstract class Validators {
   /// Validates a Colombian street address.
   static String? address(String? value) {
     if (value == null || value.trim().isEmpty) {
-      return 'La direccion es obligatoria.';
+      return 'La dirección es obligatoria.';
     }
 
     if (value.trim().length < 10) {
-      return 'Ingresa una direccion mas detallada.';
+      return 'Ingresa una dirección más detallada.';
     }
 
     if (value.trim().length > 200) {
-      return 'La direccion no debe superar los 200 caracteres.';
+      return 'La dirección no debe superar los 200 caracteres.';
     }
 
     return null;
@@ -194,7 +194,7 @@ abstract class Validators {
 
     final number = double.tryParse(value.replaceAll(RegExp(r'[,\.]'), ''));
     if (number == null || number <= 0) {
-      return '$fieldName debe ser un numero positivo.';
+      return '$fieldName debe ser un número positivo.';
     }
 
     return null;
@@ -210,15 +210,15 @@ abstract class Validators {
     final amount = double.tryParse(cleaned);
 
     if (amount == null || amount < 0) {
-      return 'Ingresa un precio valido.';
+      return 'Ingresa un precio válido.';
     }
 
     if (amount < 5000) {
-      return 'El precio minimo es \$5.000 COP.';
+      return 'El precio mínimo es \$5.000 COP.';
     }
 
     if (amount > 50000000) {
-      return 'El precio maximo es \$50.000.000 COP.';
+      return 'El precio máximo es \$50.000.000 COP.';
     }
 
     return null;
@@ -248,7 +248,7 @@ abstract class Validators {
   /// Validates PQR (petition/complaint/claim) description.
   static String? pqrDescription(String? value) {
     if (value == null || value.trim().isEmpty) {
-      return 'La descripcion del PQR es obligatoria.';
+      return 'La descripción del PQR es obligatoria.';
     }
 
     if (value.trim().length < 20) {
@@ -256,7 +256,7 @@ abstract class Validators {
     }
 
     if (value.trim().length > 2000) {
-      return 'La descripcion no debe superar los 2000 caracteres.';
+      return 'La descripción no debe superar los 2000 caracteres.';
     }
 
     return null;

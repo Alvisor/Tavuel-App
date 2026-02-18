@@ -59,8 +59,10 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
     // This watch keeps the widget alive while auth state resolves.
     ref.watch(authProvider);
 
+    final colors = AppColors.of(context);
+
     return Scaffold(
-      backgroundColor: AppColors.primary,
+      backgroundColor: colors.primary,
       body: Center(
         child: FadeTransition(
           opacity: _fadeAnimation,
@@ -73,34 +75,34 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
                   width: 120,
                   height: 120,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: colors.surface,
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.2),
+                        color: colors.onBackground.withOpacity(0.2),
                         blurRadius: 20,
                         offset: const Offset(0, 10),
                       ),
                     ],
                   ),
-                  child: const Center(
+                  child: Center(
                     child: Text(
                       'T',
                       style: TextStyle(
                         fontSize: 64,
                         fontWeight: FontWeight.w700,
-                        color: AppColors.primary,
+                        color: colors.primary,
                       ),
                     ),
                   ),
                 ),
                 const SizedBox(height: 24),
-                const Text(
+                Text(
                   'Tavuel',
                   style: TextStyle(
                     fontSize: 36,
                     fontWeight: FontWeight.w700,
-                    color: Colors.white,
+                    color: colors.textOnPrimary,
                     letterSpacing: 1,
                   ),
                 ),
@@ -109,7 +111,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
                   'Servicios del hogar',
                   style: TextStyle(
                     fontSize: 16,
-                    color: Colors.white.withOpacity(0.8),
+                    color: colors.textOnPrimary.withOpacity(0.8),
                   ),
                 ),
               ],
