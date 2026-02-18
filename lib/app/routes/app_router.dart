@@ -11,10 +11,15 @@ import '../../features/bookings/presentation/screens/create_booking_screen.dart'
 import '../../features/bookings/presentation/screens/create_open_request_screen.dart';
 import '../../features/bookings/presentation/screens/my_bookings_screen.dart';
 import '../../features/home/presentation/screens/home_screen.dart';
+import '../../features/profile/presentation/screens/edit_profile_screen.dart';
+import '../../features/profile/presentation/screens/help_center_screen.dart';
+import '../../features/profile/presentation/screens/privacy_policy_screen.dart';
 import '../../features/profile/presentation/screens/profile_screen.dart';
+import '../../features/profile/presentation/screens/terms_screen.dart';
 import '../../features/provider_dashboard/presentation/screens/provider_dashboard_screen.dart';
 import '../../features/provider_dashboard/presentation/screens/provider_requests_screen.dart';
 import '../../features/provider_dashboard/presentation/screens/provider_services_screen.dart';
+import '../../features/provider_dashboard/presentation/screens/manage_services_screen.dart';
 import '../../features/provider_onboarding/presentation/screens/onboarding_success_screen.dart';
 import '../../features/provider_onboarding/presentation/screens/provider_onboarding_screen.dart';
 import '../../features/provider_search/presentation/screens/provider_profile_screen.dart';
@@ -56,6 +61,17 @@ abstract class AppRoutes {
 
   // Open requests
   static const String openRequest = '/open-request';
+
+  // Manage services (provider)
+  static const String manageServices = '/manage-services';
+
+  // Profile
+  static const String editProfile = '/edit-profile';
+
+  // Support / Legal
+  static const String helpCenter = '/help-center';
+  static const String terms = '/terms';
+  static const String privacyPolicy = '/privacy-policy';
 }
 
 // Notifier that triggers GoRouter refresh when auth state changes,
@@ -367,6 +383,33 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         name: 'open-request',
         builder: (context, state) =>
             const CreateOpenRequestScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.manageServices,
+        name: 'manage-services',
+        builder: (context, state) => const ManageServicesScreen(),
+      ),
+      // Profile editing
+      GoRoute(
+        path: AppRoutes.editProfile,
+        name: 'edit-profile',
+        builder: (context, state) => const EditProfileScreen(),
+      ),
+      // Support / Legal screens
+      GoRoute(
+        path: AppRoutes.helpCenter,
+        name: 'help-center',
+        builder: (context, state) => const HelpCenterScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.terms,
+        name: 'terms',
+        builder: (context, state) => const TermsScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.privacyPolicy,
+        name: 'privacy-policy',
+        builder: (context, state) => const PrivacyPolicyScreen(),
       ),
       GoRoute(
         path: AppRoutes.pqrs,

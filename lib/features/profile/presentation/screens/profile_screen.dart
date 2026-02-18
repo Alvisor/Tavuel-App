@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../app/routes/app_router.dart';
 import '../../../../app/theme/app_theme.dart';
+import '../../../../core/constants/app_constants.dart';
+import '../../../../shared/providers/app_mode_provider.dart';
 import '../../../../shared/providers/theme_provider.dart';
 import '../../../auth/domain/entities/user.dart';
 import '../../../auth/presentation/providers/auth_provider.dart';
@@ -106,9 +109,9 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                       ProfileMenuItem(
                         icon: Icons.edit_outlined,
                         title: 'Editar Perfil',
-                        subtitle: 'Nombre, telefono, foto',
+                        subtitle: 'Nombre, teléfono, foto',
                         onTap: () {
-                          // TODO: Navegar a editar perfil
+                          context.push(AppRoutes.editProfile);
                         },
                       ),
 
@@ -147,7 +150,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                         title: 'Centro de Ayuda',
                         subtitle: 'Preguntas frecuentes y soporte',
                         onTap: () {
-                          // TODO: Navegar a centro de ayuda
+                          context.push(AppRoutes.helpCenter);
                         },
                       ),
 
@@ -155,7 +158,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                         icon: Icons.description_outlined,
                         title: 'Terminos y Condiciones',
                         onTap: () {
-                          // TODO: Navegar a terminos
+                          context.push(AppRoutes.terms);
                         },
                       ),
 
@@ -163,7 +166,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                         icon: Icons.privacy_tip_outlined,
                         title: 'Politica de Privacidad',
                         onTap: () {
-                          // TODO: Navegar a politica de privacidad
+                          context.push(AppRoutes.privacyPolicy);
                         },
                       ),
 
@@ -184,12 +187,24 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
 
                       // Version
                       Center(
-                        child: Text(
-                          'Tavuel v0.1.0',
-                          style: TextStyle(
-                            color: colors.textHint,
-                            fontSize: 12,
-                          ),
+                        child: Column(
+                          children: [
+                            Text(
+                              'Tavuel v${AppConstants.appVersion}',
+                              style: TextStyle(
+                                color: colors.textHint,
+                                fontSize: 12,
+                              ),
+                            ),
+                            const SizedBox(height: 2),
+                            Text(
+                              'Desarrollado por Z Solutions',
+                              style: TextStyle(
+                                color: colors.textHint,
+                                fontSize: 11,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                       const SizedBox(height: 24),
@@ -278,6 +293,9 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
 
   Widget _buildModeSwitchTile(
       User user, ProfileState profileState, AppColorsExtension colors) {
+    final isProvider = ref.watch(isProviderModeProvider);
+    final appModeState = ref.watch(appModeProvider);
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
@@ -291,21 +309,42 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
           style: TextStyle(fontWeight: FontWeight.w600),
         ),
         subtitle: Text(
-          user.isProviderMode
-              ? 'Estas recibiendo solicitudes de servicio'
+          isProvider
+              ? 'Estás recibiendo solicitudes de servicio'
               : 'Activa para recibir solicitudes',
           style: TextStyle(color: colors.textSecondary, fontSize: 13),
         ),
-        value: user.isProviderMode,
+        value: isProvider,
         activeColor: colors.secondary,
-        onChanged: profileState.isLoading
+        onChanged: profileState.isLoading || appModeState.isSwitching
             ? null
             : (value) async {
-                await ref.read(profileProvider.notifier).toggleMode();
+                final success =
+                    await ref.read(appModeProvider.notifier).toggleMode();
+                if (!mounted) return;
+                if (success) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(value
+                          ? 'Modo proveedor activado'
+                          : 'Modo cliente activado'),
+                      backgroundColor: colors.secondary,
+                    ),
+                  );
+                } else {
+                  final error = ref.read(appModeProvider).errorMessage;
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content:
+                          Text(error ?? 'No se pudo cambiar el modo'),
+                      backgroundColor: colors.error,
+                    ),
+                  );
+                }
               },
         secondary: Icon(
-          user.isProviderMode ? Icons.handyman : Icons.person,
-          color: user.isProviderMode
+          isProvider ? Icons.handyman : Icons.person,
+          color: isProvider
               ? colors.secondary
               : colors.primary,
         ),

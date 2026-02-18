@@ -20,7 +20,7 @@ class ProfileRemoteDatasource {
 
   /// Alterna entre modo CLIENTE y PROVEEDOR.
   Future<UserModel> toggleMode() async {
-    final response = await _apiClient.patch('/users/me/toggle-mode');
+    final response = await _apiClient.patch('/users/me/toggle-mode', data: {});
     return UserModel.fromJson(response.data as Map<String, dynamic>);
   }
 }

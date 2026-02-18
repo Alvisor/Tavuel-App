@@ -40,6 +40,18 @@ class AppModeNotifier extends StateNotifier<AppModeState> {
 
   AppModeNotifier(this._ref) : super(const AppModeState()) {
     _syncFromAuth();
+
+    // Escuchar cambios de auth para resincronizar en login/logout.
+    _ref.listen<AuthState>(authProvider, (prev, next) {
+      if (next.status == AuthStatus.authenticated && next.user != null) {
+        final mode = next.user!.isProviderMode
+            ? AppMode.provider
+            : AppMode.client;
+        state = AppModeState(mode: mode);
+      } else if (next.status == AuthStatus.unauthenticated) {
+        state = const AppModeState(); // Reset a modo cliente
+      }
+    });
   }
 
   /// Sincroniza el modo desde el usuario autenticado.
