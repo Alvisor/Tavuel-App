@@ -91,5 +91,6 @@ coverage/
 # Credentials / secrets
 *.jks
 *.keystore
+key.properties
 credentials.json
 service-account.json

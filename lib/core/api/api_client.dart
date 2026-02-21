@@ -169,8 +169,8 @@ class ApiClient {
   // ──────────────────────────────────────────────
 
   /// Interceptor that attempts to refresh the access token on 401 responses.
-  InterceptorsWrapper _buildRefreshTokenInterceptor() {
-    return InterceptorsWrapper(
+  QueuedInterceptorsWrapper _buildRefreshTokenInterceptor() {
+    return QueuedInterceptorsWrapper(
       onError: (DioException error, ErrorInterceptorHandler handler) async {
         if (error.response?.statusCode == 401) {
           try {
@@ -219,12 +219,12 @@ class ApiClient {
     );
   }
 
-  /// Pretty-print logs in debug mode.
+  /// Pretty-print logs in debug mode (filters sensitive data).
   LogInterceptor _buildLogInterceptor() {
     return LogInterceptor(
-      requestBody: true,
+      requestBody: false,
       responseBody: true,
-      requestHeader: true,
+      requestHeader: false,
       responseHeader: false,
       error: true,
       logPrint: (object) => debugPrint(object.toString()),

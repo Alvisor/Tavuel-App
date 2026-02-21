@@ -36,6 +36,8 @@ class AuthTextField extends StatelessWidget {
     return TextFormField(
       controller: controller,
       obscureText: obscureText,
+      autocorrect: !obscureText,
+      enableSuggestions: !obscureText,
       keyboardType: keyboardType,
       textInputAction: textInputAction,
       validator: validator,
